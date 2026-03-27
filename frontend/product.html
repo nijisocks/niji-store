@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商品詳細 | niji</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="announcement-bar"><p class="jp">送料無料キャンペーン中 — ¥3,000以上で送料無料</p><p class="en" style="display:none">FREE SHIPPING on orders over ¥3,000</p></div>
+<header id="header">
+  <div class="header-wrap">
+    <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+    <a href="index.html" class="logo"><span class="logo-text">niji</span><span class="logo-kanji">虹</span></a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="products.html?cat=ladies"><span class="jp">レディース</span><span class="en" style="display:none">Women</span></a></li>
+        <li><a href="products.html?cat=mens"><span class="jp">メンズ</span><span class="en" style="display:none">Men</span></a></li>
+        <li><a href="products.html?cat=new"><span class="jp">新着</span><span class="en" style="display:none">New</span></a></li>
+        <li><a href="about.html"><span class="jp">ブランドについて</span><span class="en" style="display:none">About</span></a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="lang-toggle" id="langToggle">JP / EN</button>
+      <a href="cart.html" class="cart-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="product-detail" id="productDetail">
+    <p style="padding:60px 0;color:#aaa;">読み込み中...</p>
+  </div>
+
+  <!-- RELATED -->
+  <section class="section" style="padding-top:0">
+    <div class="section-head">
+      <div>
+        <p class="section-label jp">関連商品</p>
+        <p class="section-label en" style="display:none">You May Also Like</p>
+        <h2 class="section-title jp">あわせて見られています</h2>
+        <h2 class="section-title en" style="display:none">Related Products</h2>
+      </div>
+    </div>
+    <div class="product-grid" id="relatedGrid"></div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; 2026 niji Socks Japan.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="store.js"></script>
+<script>
+let selectedSize = '';
+let selectedColor = '';
+let qty = 1;
+
+document.addEventListener('DOMContentLoaded', () => {
+  setLang(currentLang);
+  updateCartCount();
+  document.getElementById('langToggle').addEventListener('click', () => { setLang(currentLang === 'jp' ? 'en' : 'jp'); renderProduct(); });
+  renderProduct();
+});
+
+function renderProduct() {
+  const id = parseInt(new URLSearchParams(window.location.search).get('id'));
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) { document.getElementById('productDetail').innerHTML = '<p style="padding:60px 0">商品が見つかりません。</p>'; return; }
+
+  selectedSize = p.sizes[0];
+  selectedColor = p.colors[0];
+
+  const colors = p.colors.map((c,i) => `<div class="color-dot ${i===0?'selected':''}" style="background:${c};border-color:${c==='#fff'?'#ddd':c}" onclick="selectColor(this,'${c}')"></div>`).join('');
+  const sizes = p.sizes.map((s,i) => `<button class="size-btn ${i===0?'selected':''}" onclick="selectSize(this,'${s}')">${s}</button>`).join('');
+
+  document.getElementById('productDetail').innerHTML = `
+    <div class="product-gallery">
+      <div class="gallery-main" style="background:${p.bg}">
+        <span style="font-size:14px;letter-spacing:3px;color:rgba(0,0,0,0.15)">${p.material.toUpperCase()}</span>
+      </div>
+      <div class="gallery-thumbs">
+        ${[1,2,3,4].map((n,i) => `<div class="gallery-thumb ${i===0?'active':''}" style="background:${p.bg};opacity:${1-i*0.2}"></div>`).join('')}
+      </div>
+    </div>
+    <div class="product-detail-info">
+      <p class="breadcrumb"><a href="index.html">Home</a> / <a href="products.html">商品一覧</a> / ${currentLang==='jp'?p.name:p.nameEn}</p>
+      <br>
+      <h1 class="prod-name jp">${p.name}</h1>
+      <h1 class="prod-name en" style="display:${currentLang==='en'?'':'none'}">${p.nameEn}</h1>
+      <p class="prod-sub">${p.material.toUpperCase()} · ${p.gender === 'ladies' ? 'レディース' : p.gender === 'mens' ? 'メンズ' : 'ユニセックス'}</p>
+      <div class="prod-price" style="margin-bottom:30px">
+        ${p.originalPrice ? `<span class="original">¥${p.originalPrice.toLocaleString()}</span>` : ''}
+        ¥${p.price.toLocaleString()} <span style="font-size:12px;color:#aaa;font-weight:400">(税込)</span>
+      </div>
+
+      <p style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#999;margin-bottom:12px">
+        <span class="jp">カラー</span><span class="en" style="display:${currentLang==='en'?'':'none'}">Color</span>
+      </p>
+      <div class="color-options" style="margin-bottom:24px">${colors}</div>
+
+      <p style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#999;margin-bottom:12px">
+        <span class="jp">サイズ</span><span class="en" style="display:${currentLang==='en'?'':'none'}">Size</span>
+      </p>
+      <div class="size-options">${sizes}</div>
+
+      <p style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#999;margin-bottom:12px">
+        <span class="jp">数量</span><span class="en" style="display:${currentLang==='en'?'':'none'}">Quantity</span>
+      </p>
+      <div class="qty-selector" style="margin-bottom:30px">
+        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+        <span class="qty-num" id="qtyDisplay">1</span>
+        <button class="qty-btn" onclick="changeQty(1)">＋</button>
+      </div>
+
+      <button class="add-to-cart-btn" onclick="addToCart(${p.id})">
+        <span class="jp">カートに入れる</span>
+        <span class="en" style="display:${currentLang==='en'?'':'none'}">ADD TO CART</span>
+      </button>
+      <button class="add-to-wishlist">
+        <span class="jp">♡ お気に入りに追加</span>
+        <span class="en" style="display:${currentLang==='en'?'':'none'}">♡ Add to Wishlist</span>
+      </button>
+
+      <div style="margin-top:40px;padding-top:30px;border-top:1px solid #e8e8e8">
+        <p style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#999;margin-bottom:16px">
+          <span class="jp">商品説明</span><span class="en" style="display:${currentLang==='en'?'':'none'}">Description</span>
+        </p>
+        <p class="jp" style="font-size:14px;color:#555;line-height:1.9">${p.desc}</p>
+        <p class="en" style="display:${currentLang==='en'?'':'none'};font-size:14px;color:#555;line-height:1.9">${p.descEn}</p>
+      </div>
+
+      <div style="margin-top:30px;padding:20px;background:#fafaf8;font-size:13px;color:#666;line-height:2">
+        <p class="jp">✓ 全国送料一律 ¥440（税込）<br>✓ ¥3,000以上で送料無料<br>✓ ご注文から1-3営業日で発送<br>✓ 30日間返品・交換保証</p>
+        <p class="en" style="display:${currentLang==='en'?'':'none'}">✓ Flat shipping ¥440<br>✓ Free shipping over ¥3,000<br>✓ Ships in 1-3 business days<br>✓ 30-day return guarantee</p>
+      </div>
+    </div>
+  `;
+
+  const relGrid = document.getElementById('relatedGrid');
+  relGrid.innerHTML = '';
+  PRODUCTS.filter(x => x.id !== p.id && x.gender === p.gender).slice(0,4).forEach(x => relGrid.appendChild(createProductCard(x)));
+}
+
+function selectSize(btn, size) {
+  selectedSize = size;
+  document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+
+function selectColor(dot, color) {
+  selectedColor = color;
+  document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('selected'));
+  dot.classList.add('selected');
+}
+
+function changeQty(delta) {
+  qty = Math.max(1, qty + delta);
+  document.getElementById('qtyDisplay').textContent = qty;
+}
+
+function addToCart(id) {
+  Cart.add(id, selectedSize, qty);
+}
+</script>
+</body>
+</html>

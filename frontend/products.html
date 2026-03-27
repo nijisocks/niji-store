@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商品一覧 | niji</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="announcement-bar">
+  <p class="jp">送料無料キャンペーン中 — ¥3,000以上のご購入で送料無料</p>
+  <p class="en" style="display:none">FREE SHIPPING on orders over ¥3,000</p>
+</div>
+<header id="header">
+  <div class="header-wrap">
+    <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+    <a href="index.html" class="logo"><span class="logo-text">niji</span><span class="logo-kanji">虹</span></a>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="products.html?cat=ladies"><span class="jp">レディース</span><span class="en" style="display:none">Women</span></a></li>
+        <li><a href="products.html?cat=mens"><span class="jp">メンズ</span><span class="en" style="display:none">Men</span></a></li>
+        <li><a href="products.html?cat=new"><span class="jp">新着</span><span class="en" style="display:none">New</span></a></li>
+        <li><a href="products.html?cat=gift"><span class="jp">ギフト</span><span class="en" style="display:none">Gift</span></a></li>
+        <li><a href="about.html"><span class="jp">ブランドについて</span><span class="en" style="display:none">About</span></a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="lang-toggle" id="langToggle">JP / EN</button>
+      <a href="cart.html" class="cart-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-inner">
+    <a href="products.html?cat=ladies"><span class="jp">レディース</span><span class="en" style="display:none">Women</span></a>
+    <a href="products.html?cat=mens"><span class="jp">メンズ</span><span class="en" style="display:none">Men</span></a>
+    <a href="products.html?cat=new"><span class="jp">新着</span><span class="en" style="display:none">New</span></a>
+    <a href="products.html?cat=gift"><span class="jp">ギフト</span><span class="en" style="display:none">Gift</span></a>
+    <a href="about.html"><span class="jp">ブランドについて</span><span class="en" style="display:none">About</span></a>
+  </div>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="index.html">Home</a> / <span id="pageTitle">All</span></p>
+    <h1 id="pageHeading" class="jp">すべての商品</h1>
+  </div>
+</section>
+
+<div class="container">
+  <div class="products-layout">
+    <aside class="filter-sidebar">
+      <div class="filter-group">
+        <h3 class="jp">カテゴリー</h3>
+        <h3 class="en" style="display:none">Category</h3>
+        <div class="filter-item"><input type="checkbox" id="f-all" onchange="applyFilter()"><label for="f-all" class="jp">すべて</label><label for="f-all" class="en" style="display:none">All</label></div>
+        <div class="filter-item"><input type="checkbox" id="f-cotton" onchange="applyFilter()"><label for="f-cotton" class="jp">コットン</label><label for="f-cotton" class="en" style="display:none">Cotton</label></div>
+        <div class="filter-item"><input type="checkbox" id="f-silk" onchange="applyFilter()"><label for="f-silk" class="jp">シルク</label><label for="f-silk" class="en" style="display:none">Silk</label></div>
+        <div class="filter-item"><input type="checkbox" id="f-glass" onchange="applyFilter()"><label for="f-glass" class="jp">ガラス</label><label for="f-glass" class="en" style="display:none">Glass</label></div>
+      </div>
+      <div class="filter-group">
+        <h3 class="jp">性別</h3>
+        <h3 class="en" style="display:none">Gender</h3>
+        <div class="filter-item"><input type="checkbox" id="f-ladies" onchange="applyFilter()"><label for="f-ladies" class="jp">レディース</label><label for="f-ladies" class="en" style="display:none">Women</label></div>
+        <div class="filter-item"><input type="checkbox" id="f-mens" onchange="applyFilter()"><label for="f-mens" class="jp">メンズ</label><label for="f-mens" class="en" style="display:none">Men</label></div>
+      </div>
+      <div class="filter-group">
+        <h3 class="jp">価格帯</h3>
+        <h3 class="en" style="display:none">Price</h3>
+        <div class="filter-item"><input type="checkbox" id="f-under500" onchange="applyFilter()"><label for="f-under500">¥500以下</label></div>
+        <div class="filter-item"><input type="checkbox" id="f-500-1000" onchange="applyFilter()"><label for="f-500-1000">¥500-¥1,000</label></div>
+        <div class="filter-item"><input type="checkbox" id="f-over1000" onchange="applyFilter()"><label for="f-over1000">¥1,000以上</label></div>
+      </div>
+    </aside>
+
+    <div>
+      <div class="products-top">
+        <p class="products-count"><span id="productCount">8</span><span class="jp"> 件の商品</span><span class="en" style="display:none"> products</span></p>
+        <select class="sort-select" id="sortSelect" onchange="applyFilter()">
+          <option value="default" class="jp">おすすめ順</option>
+          <option value="price-asc" class="jp">価格が安い順</option>
+          <option value="price-desc" class="jp">価格が高い順</option>
+          <option value="new" class="jp">新着順</option>
+        </select>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; 2026 niji Socks Japan. All Rights Reserved.</p>
+      <div class="footer-links">
+        <a href="#" class="jp">プライバシーポリシー</a>
+        <a href="#" class="en" style="display:none">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="store.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  setLang(currentLang);
+  updateCartCount();
+  document.getElementById('langToggle').addEventListener('click', () => {
+    setLang(currentLang === 'jp' ? 'en' : 'jp');
+    applyFilter();
+  });
+  document.getElementById('menuToggle').addEventListener('click', () => {
+    document.getElementById('mobileNav').classList.toggle('open');
+  });
+  applyFilter();
+});
+
+function applyFilter() {
+  let filtered = [...PRODUCTS];
+  const params = new URLSearchParams(window.location.search);
+  const cat = params.get('cat');
+
+  if (cat === 'ladies') filtered = filtered.filter(p => p.gender === 'ladies');
+  else if (cat === 'mens') filtered = filtered.filter(p => p.gender === 'mens');
+  else if (cat === 'new') filtered = filtered.filter(p => p.badge === 'new');
+  else if (cat === 'gift') filtered = filtered.filter(p => p.category === 'gift');
+  else if (cat === 'cotton') filtered = filtered.filter(p => p.material === 'cotton');
+  else if (cat === 'silk') filtered = filtered.filter(p => p.material === 'silk');
+  else if (cat === 'glass') filtered = filtered.filter(p => p.material === 'glass');
+
+  if (document.getElementById('f-cotton')?.checked) filtered = filtered.filter(p => p.material === 'cotton');
+  if (document.getElementById('f-silk')?.checked) filtered = filtered.filter(p => p.material === 'silk');
+  if (document.getElementById('f-glass')?.checked) filtered = filtered.filter(p => p.material === 'glass');
+  if (document.getElementById('f-ladies')?.checked) filtered = filtered.filter(p => p.gender === 'ladies');
+  if (document.getElementById('f-mens')?.checked) filtered = filtered.filter(p => p.gender === 'mens');
+  if (document.getElementById('f-under500')?.checked) filtered = filtered.filter(p => p.price < 500);
+  if (document.getElementById('f-500-1000')?.checked) filtered = filtered.filter(p => p.price >= 500 && p.price <= 1000);
+  if (document.getElementById('f-over1000')?.checked) filtered = filtered.filter(p => p.price > 1000);
+
+  const sort = document.getElementById('sortSelect')?.value;
+  if (sort === 'price-asc') filtered.sort((a,b) => a.price - b.price);
+  else if (sort === 'price-desc') filtered.sort((a,b) => b.price - a.price);
+  else if (sort === 'new') filtered = filtered.filter(p => p.badge === 'new').concat(filtered.filter(p => p.badge !== 'new'));
+
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = '';
+  filtered.forEach(p => grid.appendChild(createProductCard(p)));
+  document.getElementById('productCount').textContent = filtered.length;
+}
+</script>
+</body>
+</html>

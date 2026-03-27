@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カート | niji</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="announcement-bar"><p class="jp">¥3,000以上で送料無料</p><p class="en" style="display:none">FREE SHIPPING over ¥3,000</p></div>
+<header id="header">
+  <div class="header-wrap">
+    <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+    <a href="index.html" class="logo"><span class="logo-text">niji</span><span class="logo-kanji">虹</span></a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="products.html?cat=ladies"><span class="jp">レディース</span><span class="en" style="display:none">Women</span></a></li>
+        <li><a href="products.html?cat=mens"><span class="jp">メンズ</span><span class="en" style="display:none">Men</span></a></li>
+        <li><a href="products.html?cat=new"><span class="jp">新着</span><span class="en" style="display:none">New</span></a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="lang-toggle" id="langToggle">JP / EN</button>
+      <a href="cart.html" class="cart-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="container cart-page">
+  <div style="margin-bottom:40px">
+    <p class="section-label jp">ショッピングカート</p>
+    <p class="section-label en" style="display:none">Shopping Cart</p>
+    <h1 class="section-title jp">カート</h1>
+    <h1 class="section-title en" style="display:none">Your Cart</h1>
+  </div>
+  <div class="cart-grid" id="cartContent"></div>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; 2026 niji Socks Japan.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="store.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  setLang(currentLang);
+  updateCartCount();
+  document.getElementById('langToggle').addEventListener('click', () => { setLang(currentLang === 'jp' ? 'en' : 'jp'); renderCart(); });
+  renderCart();
+});
+
+function renderCart() {
+  const items = Cart.get();
+  const container = document.getElementById('cartContent');
+  const shipping = Cart.total() >= 3000 ? 0 : 440;
+  const total = Cart.total() + shipping;
+
+  if (items.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column:1/-1;text-align:center;padding:80px 0">
+        <p style="font-size:40px;margin-bottom:20px">🧦</p>
+        <p class="jp" style="color:#aaa;margin-bottom:30px">カートは空です</p>
+        <p class="en" style="display:${currentLang==='en'?'':'none'};color:#aaa;margin-bottom:30px">Your cart is empty</p>
+        <a href="products.html" class="btn btn-primary jp">お買い物を続ける</a>
+        <a href="products.html" class="btn btn-primary en" style="display:${currentLang==='en'?'':'none'}">Continue Shopping</a>
+      </div>`;
+    return;
+  }
+
+  const itemsHtml = items.map(item => {
+    const p = PRODUCTS.find(x => x.id === item.id);
+    if (!p) return '';
+    return `
+      <div class="cart-item">
+        <div class="cart-item-img" style="background:${p.bg}"></div>
+        <div>
+          <p class="cart-item-name jp">${p.name}</p>
+          <p class="cart-item-name en" style="display:${currentLang==='en'?'':'none'}">${p.nameEn}</p>
+          <p class="cart-item-sub">${p.material.toUpperCase()} · サイズ ${item.size} · 数量 ${item.qty}</p>
+          <span class="cart-item-remove" onclick="removeItem(${p.id},'${item.size}')">
+            <span class="jp">削除</span><span class="en" style="display:${currentLang==='en'?'':'none'}">Remove</span>
+          </span>
+        </div>
+        <div class="cart-item-price">¥${(p.price * item.qty).toLocaleString()}</div>
+      </div>`;
+  }).join('');
+
+  container.innerHTML = `
+    <div class="cart-items">${itemsHtml}</div>
+    <div class="cart-summary">
+      <h3 class="jp">注文サマリー</h3>
+      <h3 class="en" style="display:${currentLang==='en'?'':'none'}">Order Summary</h3>
+      <div class="summary-row">
+        <span class="jp">小計</span><span class="en" style="display:${currentLang==='en'?'':'none'}">Subtotal</span>
+        <span>¥${Cart.total().toLocaleString()}</span>
+      </div>
+      <div class="summary-row">
+        <span class="jp">送料</span><span class="en" style="display:${currentLang==='en'?'':'none'}">Shipping</span>
+        <span>${shipping === 0 ? '<span style="color:#4ade80">無料</span>' : '¥' + shipping.toLocaleString()}</span>
+      </div>
+      ${shipping > 0 ? `<p style="font-size:11px;color:#aaa;margin-bottom:16px">¥${(3000 - Cart.total()).toLocaleString()}で送料無料</p>` : ''}
+      <div class="summary-row total">
+        <span class="jp">合計（税込）</span>
+        <span class="en" style="display:${currentLang==='en'?'':'none'}">Total (incl. tax)</span>
+        <span>¥${total.toLocaleString()}</span>
+      </div>
+      <button class="checkout-btn" onclick="checkout()">
+        <span class="jp">レジに進む</span>
+        <span class="en" style="display:${currentLang==='en'?'':'none'}">PROCEED TO CHECKOUT</span>
+      </button>
+      <div style="margin-top:20px;text-align:center">
+        <a href="products.html" style="font-size:12px;color:#aaa;text-decoration:underline">
+          <span class="jp">お買い物を続ける</span>
+          <span class="en" style="display:${currentLang==='en'?'':'none'}">Continue Shopping</span>
+        </a>
+      </div>
+      <div style="margin-top:24px;padding-top:16px;border-top:1px solid #e8e8e8;text-align:center">
+        <p style="font-size:11px;color:#aaa">🔒 <span class="jp">安全なSSL決済</span><span class="en" style="display:${currentLang==='en'?'':'none'}">Secure SSL Payment</span></p>
+      </div>
+    </div>`;
+}
+
+function removeItem(id, size) {
+  Cart.remove(id, size);
+  renderCart();
+  updateCartCount();
+}
+
+function checkout() {
+  alert(currentLang === 'jp' ? '決済システムと連携予定です。現在準備中です。' : 'Payment integration coming soon.');
+}
+</script>
+</body>
+</html>

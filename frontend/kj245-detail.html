@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KJ245 アイボリーホワイト | niji</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* MUJI-inspired layout additions */
+        .muji-container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; font-family: "Noto Sans JP", sans-serif; color: #333; }
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .product-images { display: flex; flex-direction: column; gap: 20px; }
+        .product-images img { width: 100%; background-color: #f7f7f7; border-radius: 2px; }
+        .product-info { padding-top: 20px; }
+        .product-title { font-size: 24px; font-weight: 500; margin-bottom: 10px; line-height: 1.4; }
+        .product-price { font-size: 20px; margin-bottom: 30px; color: #d0021b; }
+        .product-description { font-size: 14px; line-height: 1.8; margin-bottom: 40px; }
+        .section-title { font-size: 16px; font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 20px; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 40px; }
+        .spec-table th { text-align: left; padding: 12px 0; border-bottom: 1px solid #eee; width: 30%; color: #666; font-weight: normal; }
+        .spec-table td { padding: 12px 0; border-bottom: 1px solid #eee; }
+        .feature-list { list-style: none; padding: 0; margin-bottom: 40px; }
+        .feature-list li { margin-bottom: 15px; font-size: 14px; position: relative; padding-left: 20px; }
+        .feature-list li::before { content: "・"; position: absolute; left: 0; }
+        .feature-title { font-weight: bold; display: block; margin-bottom: 5px; }
+
+        @media (max-width: 768px) {
+            .product-grid { grid-template-columns: 1fr; }
+            .muji-container { padding: 30px 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="muji-container">
+        <div class="product-grid">
+            <!-- Left: Product Images -->
+            <div class="product-images">
+                <img src="https://sc02.alicdn.com/kf/A69ebdf8bc6dd4339ad5ba8491bbb5ed8G.png" alt="KJ245 Ivory Front">
+                <img src="https://sc02.alicdn.com/kf/A8f520716c52243d4926588d904791630x.png" alt="KJ245 Ivory Back">
+            </div>
+
+            <!-- Right: Product Info -->
+            <div class="product-info">
+                <h1 class="product-title">婦人 5A抗菌・防滑 超浅口フットカバー</h1>
+                <p style="color: #666; font-size: 13px; margin-bottom: 10px;">カラー：アイボリーホワイト</p>
+                <div class="product-price">￥680 <span style="font-size: 12px; color: #666;">(税込)</span></div>
+
+                <div class="product-description">
+                    <p>究極の「隠れる」と「脱げない」を両立した超浅口フットカバー。日々の足元をより快適にするために、細部までこだわり抜いた一足です。</p>
+                </div>
+
+                <h2 class="section-title">おすすめポイント</h2>
+                <ul class="feature-list">
+                    <li>
+                        <span class="feature-title">5A級抗菌消臭機能</span>
+                        天然由来の抗菌加工を施し、一日中履いても清潔さを保ちます。
+                    </li>
+                    <li>
+                        <span class="feature-title">波状シリコン防滑</span>
+                        かかと部分に波形のシリコンを採用。超浅口設計ながら、歩行中でも脱げにくい究极のフィット感を実現しました。
+                    </li>
+                    <li>
+                        <span class="feature-title">高通気性メッシュ</span>
+                        甲の部分をメッシュ編みにすることで、蒸れやすい季節でもさらっとした履き心地が続きます。
+                    </li>
+                </ul>
+
+                <h2 class="section-title">仕様・サイズ</h2>
+                <table class="spec-table">
+                    <tr>
+                        <th>サイズ</th>
+                        <td>22-24cm (Mサイズ)</td>
+                    </tr>
+                    <tr>
+                        <th>素材</th>
+                        <td>綿 90%、ナイロン、ポリウレタン</td>
+                    </tr>
+                    <tr>
+                        <th>厚み</th>
+                        <td>薄手（春夏用）</td>
+                    </tr>
+                    <tr>
+                        <th>フィット感</th>
+                        <td>ぴったり</td>
+                    </tr>
+                    <tr>
+                        <th>補強</th>
+                        <td>つま先、かかと</td>
+                    </tr>
+                </table>
+
+                <div style="margin-top: 40px;">
+                    <a href="#" class="btn btn-primary" style="width: 100%;">カートに入れる</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,368 +1,319 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>niji | 虹の色彩を、足元に。</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>niji-life | 虹 (Niji) ブランド公式サイト</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --life-bg: #fdfaf8;
+            --life-text: #333;
+            --life-accent: #c5a059;
+            --life-light: #f7f7f7;
+        }
+        body.life-theme { 
+            background-color: var(--life-bg); 
+            color: var(--life-text); 
+            font-family: "Noto Sans JP", sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+        
+        /* Navigation Override */
+        .navbar-life {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-sizing: border-box;
+            background: rgba(253, 250, 248, 0.9);
+            backdrop-filter: blur(5px);
+        }
+        .logo-life {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            color: var(--life-text);
+            font-weight: 300;
+        }
+        .nav-links-life a {
+            margin-left: 40px;
+            text-decoration: none;
+            color: var(--life-text);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Hero */
+        .hero-portal {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #eee;
+            position: relative;
+        }
+        .hero-portal img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.95);
+        }
+        .hero-content {
+            position: absolute;
+            text-align: center;
+        }
+        .hero-content h1 {
+            font-size: 2.8rem;
+            font-weight: 300;
+            letter-spacing: 0.25em;
+            margin-bottom: 25px;
+            color: #333;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            letter-spacing: 0.2em;
+            font-weight: 300;
+            color: #555;
+        }
+
+        /* Section Layout */
+        .portal-section {
+            padding: 150px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-style: italic;
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+        .portal-text {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #666;
+            font-size: 1rem;
+            line-height: 2.2;
+        }
+
+        /* Story Section */
+        .story-block {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            text-align: left;
+            margin-top: 100px;
+        }
+        .story-img {
+            flex: 1;
+            aspect-ratio: 4/5;
+            background-color: #eee;
+        }
+        .story-content {
+            flex: 1;
+        }
+        .story-content h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        /* Divisions */
+        .division-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 80px;
+        }
+        .div-card {
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            transition: transform 0.4s ease;
+        }
+        .div-card:hover { transform: translateY(-10px); }
+        .div-img-wrap {
+            aspect-ratio: 3/4;
+            background-color: var(--life-light);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .div-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        .div-label {
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 5px;
+        }
+        .div-title { font-size: 1.1rem; font-weight: 400; }
+        .div-status {
+            font-size: 0.7rem;
+            color: var(--life-accent);
+            margin-top: 10px;
+            letter-spacing: 0.1em;
+        }
+
+        /* Trust/Endorsement */
+        .trust-banner {
+            background-color: #f7f3f0;
+            padding: 80px 20px;
+            margin: 100px 0;
+        }
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 1000px;
+            margin: 0 auto;
+            gap: 40px;
+        }
+        .trust-item h4 { font-size: 1rem; margin-bottom: 15px; font-weight: 500; }
+        .trust-item p { font-size: 0.85rem; color: #888; line-height: 1.8; }
+
+        footer {
+            padding: 80px 50px;
+            background-color: #f7f7f7;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+        .footer-links a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #999;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-life { padding: 20px; }
+            .hero-content h1 { font-size: 1.8rem; }
+            .story-block { flex-direction: column; gap: 40px; }
+            .division-grid { grid-template-columns: 1fr; }
+            .trust-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
-<body>
+<body class="life-theme">
 
-<!-- ANNOUNCEMENT BAR -->
-<div class="announcement-bar">
-  <p class="jp">送料無料キャンペーン中 — ¥3,000以上のご購入で送料無料 🌈</p>
-  <p class="en" style="display:none">FREE SHIPPING on orders over ¥3,000 🌈</p>
-</div>
-
-<!-- HEADER -->
-<header id="header">
-  <div class="header-wrap">
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-
-    <a href="index.html" class="logo">
-      <span class="logo-text">niji</span>
-      <span class="logo-kanji">虹</span>
-    </a>
-
-    <nav class="main-nav" id="mainNav">
-      <ul>
-        <li class="has-dropdown">
-          <a href="#">
-            <span class="jp">レディース</span>
-            <span class="en" style="display:none">Women</span>
-          </a>
-          <div class="dropdown">
-            <a href="products.html?cat=ladies-cotton"><span class="jp">コットンソックス</span><span class="en" style="display:none">Cotton Socks</span></a>
-            <a href="products.html?cat=ladies-silk"><span class="jp">シルクソックス</span><span class="en" style="display:none">Silk Socks</span></a>
-            <a href="products.html?cat=ladies-glass"><span class="jp">ガラスソックス</span><span class="en" style="display:none">Glass Socks</span></a>
-          </div>
-        </li>
-        <li class="has-dropdown">
-          <a href="#">
-            <span class="jp">メンズ</span>
-            <span class="en" style="display:none">Men</span>
-          </a>
-          <div class="dropdown">
-            <a href="products.html?cat=mens-cotton"><span class="jp">コットンソックス</span><span class="en" style="display:none">Cotton Socks</span></a>
-            <a href="products.html?cat=mens-silk"><span class="jp">シルクソックス</span><span class="en" style="display:none">Silk Socks</span></a>
-          </div>
-        </li>
-        <li>
-          <a href="products.html?cat=new">
-            <span class="jp">新着</span>
-            <span class="en" style="display:none">New</span>
-          </a>
-        </li>
-        <li>
-          <a href="products.html?cat=gift">
-            <span class="jp">ギフト</span>
-            <span class="en" style="display:none">Gift</span>
-          </a>
-        </li>
-        <li>
-          <a href="about.html">
-            <span class="jp">ブランドについて</span>
-            <span class="en" style="display:none">About</span>
-          </a>
-        </li>
-      </ul>
+    <nav class="navbar-life">
+        <a href="index.html" class="logo-life">niji-life</a>
+        <div class="nav-links-life">
+            <a href="socks.html">Socks</a>
+            <a href="about.html">About</a>
+        </div>
     </nav>
 
-    <div class="header-actions">
-      <button class="lang-toggle" id="langToggle">JP / EN</button>
-      <a href="cart.html" class="cart-btn" id="cartBtn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-        <span class="cart-count" id="cartCount">0</span>
-      </a>
-    </div>
-  </div>
-</header>
-
-<!-- MOBILE NAV -->
-<div class="mobile-nav" id="mobileNav">
-  <div class="mobile-nav-inner">
-    <a href="products.html?cat=ladies"><span class="jp">レディース</span><span class="en" style="display:none">Women</span></a>
-    <a href="products.html?cat=mens"><span class="jp">メンズ</span><span class="en" style="display:none">Men</span></a>
-    <a href="products.html?cat=new"><span class="jp">新着</span><span class="en" style="display:none">New</span></a>
-    <a href="products.html?cat=gift"><span class="jp">ギフト</span><span class="en" style="display:none">Gift</span></a>
-    <a href="about.html"><span class="jp">ブランドについて</span><span class="en" style="display:none">About</span></a>
-  </div>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg">
-    <div class="hero-gradient"></div>
-    <div class="hero-pattern"></div>
-  </div>
-  <div class="hero-content">
-    <p class="hero-eyebrow jp">2026 Summer Collection</p>
-    <p class="hero-eyebrow en" style="display:none">2026 Summer Collection</p>
-    <h1 class="hero-title">
-      <span class="jp">虹の色彩を、<br><em>足元に。</em></span>
-      <span class="en" style="display:none">Bring Rainbow<br><em>to Your Feet.</em></span>
-    </h1>
-    <p class="hero-sub jp">厳選素材と繊細な技術が生み出す、<br>特別な一足をあなたへ。</p>
-    <p class="hero-sub en" style="display:none">Exceptional materials. Meticulous craft.<br>A pair made just for you.</p>
-    <div class="hero-ctas">
-      <a href="products.html" class="btn btn-primary">
-        <span class="jp">コレクションを見る</span>
-        <span class="en" style="display:none">Shop Now</span>
-      </a>
-      <a href="about.html" class="btn btn-ghost">
-        <span class="jp">ブランドについて</span>
-        <span class="en" style="display:none">Our Story</span>
-      </a>
-    </div>
-  </div>
-  <div class="hero-visual">
-    <div class="hero-img-box">
-      <div class="hero-img-placeholder">
-        <span>niji</span>
-        <div class="rainbow-stripe"></div>
-      </div>
-    </div>
-  </div>
-  <div class="hero-scroll">
-    <span></span>
-  </div>
-</section>
-
-<!-- CATEGORY TABS -->
-<section class="categories">
-  <div class="container">
-    <div class="cat-grid">
-      <a href="products.html?cat=cotton" class="cat-card">
-        <div class="cat-img cat-cotton">
-          <div class="cat-label-box">
-            <span class="jp">コットン</span>
-            <span class="en" style="display:none">Cotton</span>
-          </div>
+    <!-- HERO -->
+    <section class="hero-portal">
+        <img src="brand-hero.png" alt="niji-life Atmosphere">
+        <div class="hero-content">
+            <h1>足元に、小さな虹を。<br>生活のすべてに、彩りを。</h1>
+            <p>Essential Lifestyle Brands from Osaka</p>
         </div>
-        <p class="cat-desc jp">上質な肌触りと通気性</p>
-        <p class="cat-desc en" style="display:none">Superior comfort & breathability</p>
-      </a>
-      <a href="products.html?cat=silk" class="cat-card">
-        <div class="cat-img cat-silk">
-          <div class="cat-label-box">
-            <span class="jp">シルク</span>
-            <span class="en" style="display:none">Silk</span>
-          </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="portal-section">
+        <div class="section-title">Brand Philosophy</div>
+        <div class="portal-text">
+            「虹」は、雨上がりの空に現れる一瞬の輝き。<br>
+            私たちの製品も、そんな日常の何気ない瞬間に彩りを添える存在でありたいと考えています。<br>
+            素材の心地よさ、機能の確かさ、そして目にするたびに心が安らぐデザイン。<br>
+            niji-lifeは、あなたの毎日をより豊かに、より美しく整えるための<br>
+            ライフスタイル・プラットフォームです。
         </div>
-        <p class="cat-desc jp">なめらかな光沢と高級感</p>
-        <p class="cat-desc en" style="display:none">Lustrous & luxurious</p>
-      </a>
-      <a href="products.html?cat=glass" class="cat-card">
-        <div class="cat-img cat-glass">
-          <div class="cat-label-box">
-            <span class="jp">ガラス</span>
-            <span class="en" style="display:none">Glass</span>
-          </div>
+    </section>
+
+    <!-- STORY -->
+    <section class="portal-section" style="background-color: #fff;">
+        <div class="story-block">
+            <div class="story-img">
+                <img src="brand-story.png" alt="Osaka Origin" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="story-content">
+                <div class="div-label">Our Journey</div>
+                <h3>大阪から、世界へ届ける品質。</h3>
+                <p class="portal-text" style="text-align:left; font-size: 0.9rem;">
+                    2002年、大阪の地で始まった私たちの物語。<br>
+                    創業者 YUAN ZIPENG の「本当に良いものを、適正な価格で」という想いから、<br>
+                    niji-lifeの最初のプロダクトである『虹のソックス』が誕生しました。<br><br>
+                    私たちは、単に物を売るのではなく、<br>
+                    その先にある「心地よい暮らし」を提案し続けています。<br>
+                    厳選された素材と、日本の感性が融合した新しいスタンダードを。
+                </p>
+            </div>
         </div>
-        <p class="cat-desc jp">夏の透明感とエレガンス</p>
-        <p class="cat-desc en" style="display:none">Summer sheer elegance</p>
-      </a>
-      <a href="products.html?cat=gift" class="cat-card">
-        <div class="cat-img cat-gift">
-          <div class="cat-label-box">
-            <span class="jp">ギフト</span>
-            <span class="en" style="display:none">Gift</span>
-          </div>
+    </section>
+
+    <!-- TRUST / ENDORSEMENT -->
+    <div class="trust-banner">
+        <div class="trust-grid">
+            <div class="trust-item">
+                <h4>5A Antibacterial</h4>
+                <p>国際基準をクリアした高い抗菌防臭機能。毎日を清潔に保ちます。</p>
+            </div>
+            <div class="trust-item">
+                <h4>Japanese Design</h4>
+                <p>大阪の拠点から、日本人の感性に寄り添うディテールを追求。</p>
+            </div>
+            <div class="trust-item">
+                <h4>Realism First</h4>
+                <p>過度な装飾を排し、素材本来の質感と美しさを正直に伝えます。</p>
+            </div>
         </div>
-        <p class="cat-desc jp">大切な人へのプレゼントに</p>
-        <p class="cat-desc en" style="display:none">Perfect gifts for loved ones</p>
-      </a>
     </div>
-  </div>
-</section>
 
-<!-- NEW ARRIVALS -->
-<section class="new-arrivals section">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="section-label jp">最新アイテム</p>
-        <p class="section-label en" style="display:none">Latest Items</p>
-        <h2 class="section-title jp">新着商品</h2>
-        <h2 class="section-title en" style="display:none">New Arrivals</h2>
-      </div>
-      <a href="products.html?cat=new" class="link-arrow jp">すべて見る →</a>
-      <a href="products.html?cat=new" class="link-arrow en" style="display:none">View All →</a>
-    </div>
-    <div class="product-grid" id="newArrivalsGrid">
-      <!-- JS will inject products -->
-    </div>
-  </div>
-</section>
-
-<!-- RANKING -->
-<section class="ranking section" style="background:#fafafa;">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="section-label jp">人気ランキング</p>
-        <p class="section-label en" style="display:none">Best Sellers</p>
-        <h2 class="section-title jp">売れ筋ランキング</h2>
-        <h2 class="section-title en" style="display:none">Top Ranking</h2>
-      </div>
-      <a href="products.html" class="link-arrow jp">すべて見る →</a>
-      <a href="products.html" class="link-arrow en" style="display:none">View All →</a>
-    </div>
-    <div class="product-grid" id="rankingGrid">
-      <!-- JS will inject products -->
-    </div>
-  </div>
-</section>
-
-<!-- BRAND STORY -->
-<section class="brand-story section">
-  <div class="container">
-    <div class="story-grid">
-      <div class="story-visual">
-        <div class="story-img-main">
-          <div class="story-placeholder">
-            <div class="rainbow-arc"></div>
-            <span>niji</span>
-          </div>
+    <!-- DIVISIONS -->
+    <section class="portal-section">
+        <div class="section-title">Our Divisions</div>
+        <div class="division-grid">
+            <!-- Socks -->
+            <a href="socks.html" class="div-card">
+                <div class="div-img-wrap"><img src="brand-story.png" alt="Socks Division"></div>
+                <div class="div-label">01 / Socks & Goods</div>
+                <div class="div-title">niji Socks</div>
+                <div class="div-status" style="color:#666;">View Collection →</div>
+            </a>
+            <!-- Home -->
+            <div class="div-card">
+                <div class="div-img-wrap"></div>
+                <div class="div-label">02 / Home & Fragrance</div>
+                <div class="div-title">niji Home</div>
+                <div class="div-status">Under Construction</div>
+            </div>
+            <!-- Wellness -->
+            <div class="div-card">
+                <div class="div-img-wrap"></div>
+                <div class="div-label">03 / Wellness & Care</div>
+                <div class="div-title">niji Wellness</div>
+                <div class="div-status">Coming Soon</div>
+            </div>
         </div>
-        <div class="story-img-sub">
-          <div class="story-placeholder-sub"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="logo-life" style="margin-bottom: 30px;">niji-life</div>
+        <div class="footer-links">
+            <a href="about.html">Brand Story</a>
+            <a href="legal.html">特定商取引法</a>
+            <a href="privacy.html">Privacy Policy</a>
         </div>
-      </div>
-      <div class="story-content">
-        <p class="section-label jp">ブランドストーリー</p>
-        <p class="section-label en" style="display:none">Our Story</p>
-        <h2 class="story-heading jp">雨上がりの空に<br>架かる虹のように。</h2>
-        <h2 class="story-heading en" style="display:none">Like a rainbow<br>after the rain.</h2>
-        <p class="story-body jp">
-          「niji（虹）」は、足元から日常に彩りと喜びをもたらすために生まれたブランドです。
-          厳選されたコットン、シルク、夏の透明感あふれるガラス糸を使い、
-          職人が一足一足丁寧に仕上げています。
-        </p>
-        <p class="story-body en" style="display:none">
-          Born to bring color and joy to everyday life, starting from your feet.
-          niji uses carefully selected cotton, silk, and glass yarns,
-          crafted with meticulous care by skilled artisans.
-        </p>
-        <a href="about.html" class="btn btn-outline jp">もっと詳しく</a>
-        <a href="about.html" class="btn btn-outline en" style="display:none">Learn More</a>
-      </div>
-    </div>
-  </div>
-</section>
+        <p style="font-size: 0.7rem; color: #ccc; margin-top: 50px;">&copy; 2026 niji-life. All rights reserved.</p>
+    </footer>
 
-<!-- FEATURES -->
-<section class="features section" style="background:#f8f6f3;">
-  <div class="container">
-    <div class="features-grid">
-      <div class="feature-item">
-        <div class="feature-icon">🇯🇵</div>
-        <h3 class="jp">日本品質</h3>
-        <h3 class="en" style="display:none">Japan Quality</h3>
-        <p class="jp">素材から製造まで厳格に管理した日本品質</p>
-        <p class="en" style="display:none">Strict quality control from material to production</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">🌿</div>
-        <h3 class="jp">厳選素材</h3>
-        <h3 class="en" style="display:none">Premium Materials</h3>
-        <p class="jp">肌に優しい高品質コットン・シルク素材を使用</p>
-        <p class="en" style="display:none">Skin-friendly premium cotton and silk materials</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">🎁</div>
-        <h3 class="jp">ギフト対応</h3>
-        <h3 class="en" style="display:none">Gift Ready</h3>
-        <p class="jp">特別なパッケージでギフトにも最適</p>
-        <p class="en" style="display:none">Special packaging perfect for gifting</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">🚚</div>
-        <h3 class="jp">送料無料</h3>
-        <h3 class="en" style="display:none">Free Shipping</h3>
-        <p class="jp">¥3,000以上のご注文で送料無料</p>
-        <p class="en" style="display:none">Free shipping on orders over ¥3,000</p>
-      </div>
-    </div>
-  </div>
-</section>
-
- <!-- INSTAGRAM FEED (Halted) -->
- 
-
- <!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="logo footer-logo">
-            <span class="logo-text">niji</span>
-            <span class="logo-kanji">虹</span>
-          </div>
-          <p class="jp footer-tagline">足元から、日常を豊かに。</p>
-          <p class="en footer-tagline" style="display:none">Enrich everyday life, from your feet up.</p>
-          <div class="social-icons">
-          </div>
-        </div>
-
-        <div class="footer-col">
-          <h4 class="jp">ショップ</h4>
-          <h4 class="en" style="display:none">Shop</h4>
-          <ul>
-            <li><a href="products.html?cat=ladies"><span class="jp">レディース</span><span class="en" style="display:none">Women</span></a></li>
-            <li><a href="products.html?cat=mens"><span class="jp">メンズ</span><span class="en" style="display:none">Men</span></a></li>
-            <li><a href="products.html?cat=new"><span class="jp">新着商品</span><span class="en" style="display:none">New Arrivals</span></a></li>
-            <li><a href="products.html?cat=gift"><span class="jp">ギフトセット</span><span class="en" style="display:none">Gift Sets</span></a></li>
-            <li><a href="products.html?sale=true"><span class="jp">セール</span><span class="en" style="display:none">Sale</span></a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4 class="jp">サポート</h4>
-          <h4 class="en" style="display:none">Support</h4>
-          <ul>
-            <li><a href="#"><span class="jp">よくある質問</span><span class="en" style="display:none">FAQ</span></a></li>
-            <li><a href="#"><span class="jp">配送について</span><span class="en" style="display:none">Shipping</span></a></li>
-            <li><a href="#"><span class="jp">返品・交換</span><span class="en" style="display:none">Returns</span></a></li>
-            <li><a href="#"><span class="jp">サイズガイド</span><span class="en" style="display:none">Size Guide</span></a></li>
-            <li><a href="#"><span class="jp">お問い合わせ</span><span class="en" style="display:none">Contact</span></a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4 class="jp">メルマガ登録</h4>
-          <h4 class="en" style="display:none">Newsletter</h4>
-          <p class="jp" style="font-size:13px;margin-bottom:15px;color:#888;">新着情報やセール情報をいち早くお届けします。</p>
-          <p class="en" style="display:none;font-size:13px;margin-bottom:15px;color:#888;">Get the latest news and exclusive offers.</p>
-          <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-            <input type="email" placeholder="your@email.com" required>
-            <button type="submit" class="jp">登録</button>
-            <button type="submit" class="en" style="display:none">Subscribe</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="container">
-      <p>&copy; 2026 niji Socks Japan. All Rights Reserved.</p>
-      <div class="footer-links">
-        <a href="legal.html" class="jp">特定商取引法に基づく表示</a>
-        <a href="legal.html" class="en" style="display:none">Legal Notice</a>
-        <a href="privacy.html" class="jp">プライバシーポリシー</a>
-        <a href="privacy.html" class="en" style="display:none">Privacy Policy</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script src="store.js"></script>
-<script src="main.js"></script>
 </body>
 </html>

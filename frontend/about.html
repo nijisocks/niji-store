@@ -1,115 +1,60 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ブランドについて | niji</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | niji-life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background-color: #fdfaf8; color: #333; font-family: "Noto Sans JP", sans-serif; line-height: 2; }
+        .nav-simple { padding: 40px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-simple { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; text-decoration: none; color: #333; }
+        .about-container { max-width: 800px; margin: 100px auto; padding: 0 20px; text-align: center; }
+        .about-h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-style: italic; margin-bottom: 60px; font-weight: 300; }
+        .concept-block { margin-bottom: 100px; }
+        .concept-h2 { font-size: 1.2rem; margin-bottom: 30px; letter-spacing: 0.2em; font-weight: 400; border-bottom: 1px solid #ddd; display: inline-block; padding-bottom: 10px; }
+        .company-info { text-align: left; background: #fff; padding: 40px; border-radius: 4px; display: inline-block; min-width: 300px; }
+        .company-info p { margin: 10px 0; font-size: 0.9rem; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .company-info span { color: #999; width: 120px; display: inline-block; }
+    </style>
 </head>
 <body>
-
-<!-- ANNOUNCEMENT BAR -->
-<div class="announcement-bar">
-  <p class="jp">送料無料キャンペーン中 — ¥3,000以上のご購入で送料無料 🌈</p>
-  <p class="en" style="display:none">FREE SHIPPING on orders over ¥3,000 🌈</p>
-</div>
-
-<!-- HEADER -->
-<header id="header">
-  <div class="header-wrap">
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <a href="index.html" class="logo">
-      <span class="logo-text">niji-life</span>
-      <span class="logo-kanji">虹</span>
-    </a>
-    <nav class="main-nav" id="mainNav">
-      <ul>
-        <li><a href="index.html"><span class="jp">ホーム</span><span class="en" style="display:none">Home</span></a></li>
-        <li><a href="socks.html"><span class="jp">ソックス</span><span class="en" style="display:none">Socks</span></a></li>
-        <li><a href="products.html?cat=ladies"><span class="jp">レディース</span><span class="en" style="display:none">Women</span></a></li>
-        <li><a href="products.html?cat=mens"><span class="jp">メンズ</span><span class="en" style="display:none">Men</span></a></li>
-        <li><a href="products.html?cat=new"><span class="jp">新着</span><span class="en" style="display:none">New</span></a></li>
-        <li><a href="products.html?cat=gift"><span class="jp">ギフト</span><span class="en" style="display:none">Gift</span></a></li>
-        <li><a href="about.html" class="active"><span class="jp">ブランドについて</span><span class="en" style="display:none">About</span></a></li>
-      </ul>
+    <nav class="nav-simple">
+        <a href="index.html" class="logo-simple">niji-life</a>
+        <a href="socks.html" style="text-decoration:none; color:#333; font-size:0.8rem; letter-spacing:0.1em;">SOCKS →</a>
     </nav>
-    <div class="header-actions">
-      <button class="lang-toggle" id="langToggle">JP / EN</button>
-      <a href="cart.html" class="cart-btn" id="cartCountBtn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-        <span class="cart-count" id="cartCount">0</span>
-      </a>
-    </div>
-  </div>
-</header>
 
-<main>
-  <section class="about-hero">
-    <div class="container">
-      <div class="about-hero-content">
-        <p class="section-label">Our Story</p>
-        <h1 class="jp">足元に、小さな虹を。</h1>
-        <h1 class="en" style="display:none">A small rainbow for your feet.</h1>
-        <p class="jp">虹 (Niji) は、大阪を拠点とする靴下ブランドです。<br>毎日の何気ない一歩に、色彩と喜びを添えるために。</p>
-        <p class="en" style="display:none">Niji is a sock brand based in Osaka, Japan.<br>Adding color and joy to every step of your daily life.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="about-content section">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-img">
-          <img src="brand-hero.png" alt="niji socks 8 colors" style="width:100%; height:100%; object-fit:cover;">
+    <div class="about-container">
+        <h1 class="about-h1">Brand Concept</h1>
+        
+        <div class="concept-block">
+            <div class="concept-h2">PHILOSOPHY</div>
+            <p>
+                「心地よさ」の、その先へ。<br>
+                niji-lifeは、日常の質感を整えるライフスタイル・プラットフォームです。<br>
+                私たちは、単に機能的な製品を作るだけではありません。<br>
+                それを使う人の心が、雨上がりの虹を見た時のように、<br>
+                ふっと軽やかになるような体験を届けることを使命としています。
+            </p>
         </div>
-        <div class="about-text">
-          <p class="section-label">Brand Concept</p>
-          <h2 class="jp">こだわりの8色、こだわりの品質</h2>
-          <h2 class="en" style="display:none">8 Colors, Premium Quality</h2>
-          <p class="jp">私たちの靴下は、単なる衣類ではなく、表現のツールです。5A級の抗菌防臭機能、90度の直角設計。熟練の職人とともに、日本の高い技術を詰め込んだ最高の一足をお届けします。</p>
-          <p class="en" style="display:none">Our socks are not just clothing; they are tools of expression. Featuring 5A-grade antibacterial protection and a 90-degree heel design. We deliver the finest pair, infused with high Japanese technology and the expertise of skilled craftsmen.</p>
-        </div>
-      </div>
 
-      <div class="about-grid reverse">
-        <div class="about-img">
-          <img src="brand-story.png" alt="Osaka story" style="width:100%; height:100%; object-fit:cover;">
+        <div class="concept-block">
+            <div class="concept-h2">COMPANY</div>
+            <div class="company-info">
+                <p><span>会社名</span>多吉科技株式会社</p>
+                <p><span>設立</span>2025年</p>
+                <p><span>所在地</span>大阪府大阪市中央区船場中央3丁目2番8号 船場センタービル8号館 B117号室</p>
+                <p><span>電話番号</span>06-6484-6966</p>
+                <p><span>Email</span>dogeeforwork@gmail.com</p>
+            </div>
         </div>
-        <div class="about-text">
-          <p class="section-label">Company</p>
-          <h2 class="jp">会社概要</h2>
-          <h2 class="en" style="display:none">Company Profile</h2>
-          <table class="legal-table" style="margin-top:0">
-            <tr><th class="jp">屋号</th><td class="jp">虹 (Niji)</td></tr>
-            <tr><th class="jp">代表者</th><td>YUAN ZIPENG</td></tr>
-            <tr><th class="jp">設立</th><td>2024年</td></tr>
-            <tr><th class="jp">所在地</th><td class="jp">大阪府大阪市中央区</td></tr>
-            <tr><th class="jp">事業内容</th><td class="jp">アパレル・靴下の企画、製造、EC販売</td></tr>
-          </table>
-        </div>
-      </div>
     </div>
-  </section>
-</main>
 
-<footer>
-  <div class="footer-bottom">
-    <div class="container">
-      <p>&copy; 2026 niji-life. All Rights Reserved.</p>
-      <div class="footer-links">
-        <a href="legal.html" class="jp">特定商取引法に基づく表示</a>
-        <a href="legal.html" class="en" style="display:none">Legal Notice</a>
-        <a href="privacy.html" class="jp">プライバシーポリシー</a>
-        <a href="privacy.html" class="en" style="display:none">Privacy Policy</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script src="store.js"></script>
-<script src="main.js"></script>
+    <footer style="margin-top:100px; padding:60px; text-align:center; border-top:1px solid #eee; font-size:0.7rem; color:#999;">
+        &copy; 2026 niji-life. All rights reserved.
+    </footer>
 </body>
 </html>

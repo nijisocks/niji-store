@@ -36,6 +36,24 @@ input, textarea { font-family: inherit; }
 .link-arrow { font-size: 13px; color: var(--mid); border-bottom: 1px solid currentColor; padding-bottom: 2px; }
 .link-arrow:hover { color: var(--black); }
 
+/* Stability Placeholder */
+.img-placeholder {
+  background-color: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.img-placeholder::after {
+  content: 'niji-goods';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: #ddd;
+  text-transform: uppercase;
+}
+
 /* ===== ANNOUNCEMENT BAR ===== */
 .announcement-bar { background: var(--black); color: #fff; text-align: center; padding: 10px 20px; font-size: 12px; letter-spacing: 1px; }
 

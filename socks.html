@@ -17,17 +17,17 @@
       <a href="socks.html" class="active">Socks</a>
       <a href="about.html">Concept</a>
       <div class="lang-switcher">
-        <span class="active">TC</span> / <span>JP</span>
+        <span onclick="setLang('tc')" id="lang-tc">TC</span> / <span onclick="setLang('jp')" id="lang-jp">JP</span>
       </div>
     </div>
   </nav>
 
   <!-- SOCKS HERO -->
-  <section class="hero-portal" style="height: 60vh;">
-    <img src="https://images.unsplash.com/photo-1582966298636-a1d08b302e0c?auto=format&fit=crop&q=80&w=1200" alt="niji Socks Collection">
+  <section class="hero-portal" style="height: 65vh;">
+    <img src="https://images.unsplash.com/photo-1590736704728-f4730bb3c370?auto=format&fit=crop&q=80&w=1200" alt="niji Socks Collection">
     <div class="hero-content">
-      <div class="section-label">2026 Collection</div>
-      <h1 style="font-size: 32px;">虹の色彩を、足元に。</h1>
+      <div class="section-label">Selected Hosiery</div>
+      <h1 style="font-size: 38px;">足尖的藝術，<br>日常的質感禮讚。</h1>
       <p>Premium Hosiery Collection</p>
     </div>
   </section>
@@ -35,41 +35,44 @@
   <!-- CATEGORY GRID -->
   <section class="portal-section">
     <div class="container">
-      <div class="section-label">Categories</div>
-      <div class="section-title">產品分類</div>
+      <div class="section-label">Material & Texture</div>
+      <div class="section-title">材質與觸感</div>
       
-      <div class="division-grid" style="margin-top: 40px;">
+      <div class="division-grid" style="margin-top: 60px;">
         <a href="products.html?cat=cotton" class="div-card">
           <div class="div-img-wrap">
-            <img src="https://images.unsplash.com/photo-1606822472851-419b7d8d47b1?auto=format&fit=crop&q=80&w=600" alt="Cotton">
+            <img src="https://images.unsplash.com/photo-1540221652346-e5dd6b50f3e7?auto=format&fit=crop&q=80&w=600" alt="Cotton">
           </div>
+          <div class="div-label">01 / Organic Cotton</div>
           <div class="div-title">精梳棉系列</div>
-          <div class="div-status">Cotton Collection</div>
+          <div class="div-status">極致親膚，吸濕透氣</div>
         </a>
         <a href="products.html?cat=silk" class="div-card">
           <div class="div-img-wrap">
-            <img src="https://images.unsplash.com/photo-1563823251941-b9989d1e8d97?auto=format&fit=crop&q=80&w=600" alt="Silk">
+            <img src="https://images.unsplash.com/photo-1555529733-0e670560f7e1?auto=format&fit=crop&q=80&w=600" alt="Silk">
           </div>
-          <div class="div-title">蠶絲系列</div>
-          <div class="div-status">Silk Collection</div>
+          <div class="div-label">02 / Pure Silk Blend</div>
+          <div class="div-title">蠶絲混紡系列</div>
+          <div class="div-status">柔滑如影，控溫呵護</div>
         </a>
         <a href="products.html?cat=glass" class="div-card">
           <div class="div-img-wrap">
-            <img src="https://images.unsplash.com/photo-1516762689617-e1cffcef479d?auto=format&fit=crop&q=80&w=600" alt="Glass">
+            <img src="https://images.unsplash.com/photo-1502741282025-a9c68cc289ad?auto=format&fit=crop&q=80&w=600" alt="Glass">
           </div>
+          <div class="div-label">03 / Sheer Glass</div>
           <div class="div-title">透明網紗系列</div>
-          <div class="div-status">Mesh Collection</div>
+          <div class="div-status">輕盈剔透，優雅朦朧</div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- PRODUCT LISTING PLACEHOLDER (Integration with store.js) -->
-  <section class="portal-section" style="background-color: #fff;">
+  <!-- PRODUCT LISTING -->
+  <section class="portal-section" style="background-color: #fff; padding-top:0;">
     <div class="container">
-      <div class="section-label">Selected Items</div>
-      <div id="product-grid" class="division-grid" style="grid-template-columns: repeat(4, 1fr);">
-        <!-- Dynamically filled by store.js or main.js -->
+      <div class="section-label" style="text-align:left;">All Collections</div>
+      <div id="productGrid" class="division-grid" style="grid-template-columns: repeat(4, 1fr); margin-top:30px;">
+        <!-- Filled by JS -->
       </div>
     </div>
   </section>
@@ -90,6 +93,14 @@
   </footer>
 
   <script src="store.js"></script>
-  <script src="main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setLang(currentLang);
+      const grid = document.getElementById('productGrid');
+      PRODUCTS.forEach(p => {
+        grid.appendChild(createProductCard(p));
+      });
+    });
+  </script>
 </body>
 </html>

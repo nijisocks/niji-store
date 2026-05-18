@@ -1,61 +1,76 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Concept | niji-goods</title>
+    <title>Brand Concept | niji-goods</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;700&family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        body { background-color: #fdfaf8; color: #333; font-family: "Noto Sans JP", sans-serif; line-height: 2; }
-        .nav-simple { padding: 40px; display: flex; justify-content: space-between; align-items: center; }
-        .logo-simple { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; text-decoration: none; color: #333; }
-        .about-container { max-width: 800px; margin: 100px auto; padding: 0 20px; text-align: center; }
-        .about-h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-style: italic; margin-bottom: 60px; font-weight: 300; }
-        .concept-block { margin-bottom: 100px; }
-        .concept-h2 { font-size: 1.2rem; margin-bottom: 30px; letter-spacing: 0.2em; font-weight: 400; border-bottom: 1px solid #ddd; display: inline-block; padding-bottom: 10px; }
-        .company-info { text-align: left; background: #fff; padding: 40px; border-radius: 4px; display: inline-block; min-width: 300px; }
-        .company-info p { margin: 10px 0; font-size: 0.9rem; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .company-info span { color: #999; width: 120px; display: inline-block; }
+        .concept-container { max-width: 800px; margin: 150px auto; padding: 0 20px; text-align: center; }
+        .concept-h1 { font-size: 48px; margin-bottom: 60px; font-family: var(--font-serif); font-weight: 400; }
+        .concept-section { margin-bottom: 100px; }
+        .concept-section h2 { font-size: 11px; letter-spacing: 0.3em; color: var(--life-accent); margin-bottom: 25px; font-family: var(--font-serif); }
+        .concept-section p { font-size: 16px; line-height: 2.2; color: var(--dark); font-weight: 300; }
     </style>
 </head>
 <body>
-    <nav class="nav-simple">
-        <a href="index.html" class="logo-simple">niji-goods</a>
-        <a href="socks.html" style="text-decoration:none; color:#333; font-size:0.8rem; letter-spacing:0.1em;">SOCKS →</a>
+
+    <nav class="navbar-life">
+        <a href="index.html" class="logo-life">niji-goods</a>
+        <div class="nav-links-life">
+            <a href="socks.html">Socks</a>
+            <a href="about.html" class="active">Concept</a>
+            <div class="lang-switcher">
+                <span class="active">TC</span> / <span>JP</span>
+            </div>
+        </div>
     </nav>
 
-    <div class="about-container">
-        <h1 class="about-h1">Brand Concept</h1>
+    <div class="concept-container reveal active">
+        <h1 class="concept-h1">Brand Concept</h1>
         
-        <div class="concept-block">
-            <div class="concept-h2">PHILOSOPHY</div>
+        <div class="concept-section">
+            <h2>PHILOSOPHY</h2>
             <p>
                 「質感」を整える、生活を彩る。<br>
-                niji-goodsは、日常の隙間に潜む美しさを見出し、<br>
-                プロダクトを通じてその質感を高めるブランドです。<br>
-                私たちは、単に機能的な「モノ」を作るだけではありません。<br>
-                それを使う人の心が、雨上がりの虹を見た時のように、<br>
-                ふっと軽やかになるような「体験」を届けることを使命としています。
+                niji-goods 相信，日常的隙間中潛藏著不被察覺的美，<br>
+                而我們的使命是透過精緻的器物，將這份質感喚醒。<br><br>
+                我們不只是在製造商品，<br>
+                而是希望您在每一次觸碰、每一次穿上、每一次凝視中，<br>
+                都能感受到如雨後彩虹般，那份讓心靈瞬間輕盈的驚喜與平安。
             </p>
         </div>
 
-        <div class="concept-block">
-            <div class="concept-h2">COMPANY</div>
-            <div class="company-info">
-                <p><span>会社名</span>多吉科技株式会社</p>
-                <p><span>設立</span>2025年</p>
-                <p><span>所在地</span>大阪府大阪市中央区船場中央3丁目2番8号 船場センタービル8号館 B117号室</p>
-                <p><span>電話番号</span>06-6484-6966</p>
-                <p><span>Email</span>dogeeforwork@gmail.com</p>
-            </div>
+        <div class="concept-section">
+            <h2>OUR STORY</h2>
+            <p>
+                這是一場關於「回歸」的旅程。<br>
+                從一雙追求極致觸感的襪子開始，<br>
+                我們學會了傾聽素材的呼吸，尊重工藝的溫度。<br><br>
+                現在，niji-goods 將這份對質量的執著，<br>
+                延伸至生活的每一個角落。<br>
+                大阪的匠心與屬天的靈感，在此交織。<br>
+                誠實地呈現，靜謐地陪伴。
+            </p>
+        </div>
+
+        <div class="concept-section" style="padding-top: 50px; border-top: 1px solid var(--border);">
+            <h2>CORPORATE</h2>
+            <p style="font-size: 14px; color: var(--mid);">
+                多吉科技株式會社 / Dogee Technology Co., Ltd.<br>
+                Founder: YUAN ZIPENG<br>
+                Founded: 2025
+            </p>
         </div>
     </div>
 
-    <footer style="margin-top:100px; padding:60px; text-align:center; border-top:1px solid #eee; font-size:0.7rem; color:#999;">
-        &copy; 2026 niji-goods. All rights reserved.
+    <footer>
+        <div class="logo-life" style="margin-bottom: 30px;">niji-goods</div>
+        <p style="font-size: 0.7rem; color: #ccc;">&copy; 2026 niji-goods. All rights reserved.</p>
     </footer>
+
 </body>
 </html>

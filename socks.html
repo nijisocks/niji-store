@@ -1,159 +1,95 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>niji-goods | Socks & Goods</title>
+  <title>Socks & Goods | niji-goods</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;700&family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="announcement-bar">
-  <p class="jp">送料無料キャンペーン中 — ¥3,000以上のご購入で送料無料 🌈</p>
-</div>
-
-<header id="header">
-  <div class="header-wrap">
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-
-    <a href="index.html" class="logo">
-      <span class="logo-text">niji-goods</span>
-      <span class="logo-kanji">虹</span>
-    </a>
-
-    <nav class="main-nav" id="mainNav">
-      <ul>
-        <li><a href="index.html">ホーム</a></li>
-        <li class="has-dropdown">
-          <a href="#">レディース</a>
-          <div class="dropdown">
-            <a href="products.html?cat=ladies-cotton">コットンソックス</a>
-            <a href="products.html?cat=ladies-silk">シルクソックス</a>
-            <a href="products.html?cat=ladies-glass">ガラスソックス</a>
-          </div>
-        </li>
-        <li class="has-dropdown">
-          <a href="#">メンズ</a>
-          <div class="dropdown">
-            <a href="products.html?cat=mens-cotton">コットンソックス</a>
-            <a href="products.html?cat=mens-silk">シルクソックス</a>
-          </div>
-        </li>
-        <li><a href="products.html?cat=new">新着</a></li>
-        <li><a href="about.html">コンセプト</a></li>
-      </ul>
-    </nav>
-
-    <div class="header-actions">
-      <a href="cart.html" class="cart-btn" id="cartBtn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-        <span class="cart-count" id="cartCount">0</span>
-      </a>
-    </div>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="hero-bg" style="background-image: url('brand-hero.png'); background-size: cover; background-position: center;">
-    <div class="hero-gradient"></div>
-  </div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">2026 Summer Collection</p>
-    <h1 class="hero-title">
-      <span class="jp">虹の色彩を、<br><em>足元に。</em></span>
-    </h1>
-    <p class="hero-sub">厳選素材と繊細な技術が生み出す、<br>特別な一足をあなたへ。</p>
-    <div class="hero-ctas">
-      <a href="products.html" class="btn btn-primary">コレクションを見る</a>
-    </div>
-  </div>
-</section>
-
-<section class="categories">
-  <div class="container">
-    <div class="cat-grid">
-      <a href="products.html?cat=cotton" class="cat-card">
-        <div class="cat-img" style="background-image: url('brand-story.png'); background-size: cover;">
-          <div class="cat-label-box"><span>コットン</span></div>
-        </div>
-      </a>
-      <a href="products.html?cat=silk" class="cat-card">
-        <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1606822472851-419b7d8d47b1?auto=format&fit=crop&q=80&w=600'); background-size: cover;">
-          <div class="cat-label-box"><span>シルク</span></div>
-        </div>
-      </a>
-      <a href="products.html?cat=glass" class="cat-card">
-        <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1563823251941-b9989d1e8d97?auto=format&fit=crop&q=80&w=600'); background-size: cover;">
-          <div class="cat-label-box"><span>ガラス</span></div>
-        </div>
-      </a>
-      <a href="products.html?cat=gift" class="cat-card">
-        <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&q=80&w=600'); background-size: cover;">
-          <div class="cat-label-box"><span>ギフト</span></div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="brand-story section">
-  <div class="container">
-    <div class="story-grid">
-      <div class="story-visual">
-        <div class="story-img-main" style="background-image: url('brand-story.png'); background-size: cover;"></div>
-      </div>
-      <div class="story-content">
-        <p class="section-label">Brand Vision</p>
-        <h2 class="story-heading">質感を整える、<br>生活を彩る。</h2>
-        <p class="story-body">
-          「niji-goods」は、日常の隙間に潜む美しさを見出し、その質感を高めるために生まれたブランドです。
-          靴下という一足の小さなプロダクトから始まり、今、暮らしを豊かにするすべてのアイテムへと広がっています。
-        </p>
-        <a href="about.html" class="btn btn-outline">もっと詳しく</a>
+  <nav class="navbar-life">
+    <a href="index.html" class="logo-life">niji-goods</a>
+    <div class="nav-links-life">
+      <a href="socks.html" class="active">Socks</a>
+      <a href="about.html">Concept</a>
+      <div class="lang-switcher">
+        <span class="active">TC</span> / <span>JP</span>
       </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<footer>
-  <div class="footer-top">
+  <!-- SOCKS HERO -->
+  <section class="hero-portal" style="height: 60vh;">
+    <img src="https://images.unsplash.com/photo-1582966298636-a1d08b302e0c?auto=format&fit=crop&q=80&w=1200" alt="niji Socks Collection">
+    <div class="hero-content">
+      <div class="section-label">2026 Collection</div>
+      <h1 style="font-size: 32px;">虹の色彩を、足元に。</h1>
+      <p>Premium Hosiery Collection</p>
+    </div>
+  </section>
+
+  <!-- CATEGORY GRID -->
+  <section class="portal-section">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="logo footer-logo" style="margin-bottom: 20px;">
-            <span class="logo-text">niji-goods</span>
+      <div class="section-label">Categories</div>
+      <div class="section-title">產品分類</div>
+      
+      <div class="division-grid" style="margin-top: 40px;">
+        <a href="products.html?cat=cotton" class="div-card">
+          <div class="div-img-wrap">
+            <img src="https://images.unsplash.com/photo-1606822472851-419b7d8d47b1?auto=format&fit=crop&q=80&w=600" alt="Cotton">
           </div>
-          <div style="margin-bottom: 40px; color: #666; font-size: 0.85rem;">
-            多吉科技株式会社 / Dogee Technology Co., Ltd.<br>
-            大阪府大阪市中央区船場中央3丁目2番8号 船場センタービル8号館 B117号室<br>
-            Tel: 06-6484-6966 / Email: dogeeforwork@gmail.com
+          <div class="div-title">精梳棉系列</div>
+          <div class="div-status">Cotton Collection</div>
+        </a>
+        <a href="products.html?cat=silk" class="div-card">
+          <div class="div-img-wrap">
+            <img src="https://images.unsplash.com/photo-1563823251941-b9989d1e8d97?auto=format&fit=crop&q=80&w=600" alt="Silk">
           </div>
-        </div>
-        <div class="footer-col">
-          <h4>ショップ</h4>
-          <ul>
-            <li><a href="products.html?cat=ladies">レディース</a></li>
-            <li><a href="products.html?cat=mens">メンズ</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>サポート</h4>
-          <ul>
-            <li><a href="legal.html">特定商取引法</a></li>
-            <li><a href="privacy.html">プライバシーポリシー</a></li>
-          </ul>
-        </div>
+          <div class="div-title">蠶絲系列</div>
+          <div class="div-status">Silk Collection</div>
+        </a>
+        <a href="products.html?cat=glass" class="div-card">
+          <div class="div-img-wrap">
+            <img src="https://images.unsplash.com/photo-1516762689617-e1cffcef479d?auto=format&fit=crop&q=80&w=600" alt="Glass">
+          </div>
+          <div class="div-title">透明網紗系列</div>
+          <div class="div-status">Mesh Collection</div>
+        </a>
       </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<script src="store.js"></script>
-<script src="main.js"></script>
+  <!-- PRODUCT LISTING PLACEHOLDER (Integration with store.js) -->
+  <section class="portal-section" style="background-color: #fff;">
+    <div class="container">
+      <div class="section-label">Selected Items</div>
+      <div id="product-grid" class="division-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <!-- Dynamically filled by store.js or main.js -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo-life" style="margin-bottom: 30px;">niji-goods</div>
+    <div style="margin-bottom: 40px; color: #666; font-size: 0.85rem;">
+        多吉科技株式會社 / Dogee Technology Co., Ltd.<br>
+        大阪府大阪市中央區船場中央3丁目2番8號 船場中心大樓8號館 B117號室<br>
+        Tel: 06-6484-6966 / Email: dogeeforwork@gmail.com
+    </div>
+    <div class="footer-links">
+        <a href="about.html">Concept</a>
+        <a href="legal.html">特定商取引法</a>
+        <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <p style="font-size: 0.7rem; color: #ccc; margin-top: 50px;">&copy; 2026 niji-goods. All rights reserved.</p>
+  </footer>
+
+  <script src="store.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>

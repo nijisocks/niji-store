@@ -1,4 +1,4 @@
-// ===== niji-goods Product Data (12 Curated Items) =====
+// ===== niji-goods Product Data (12 Curated Items - Verified Rationality) =====
 const PRODUCTS = [
   // CATEGORY: ladies-cotton (4)
   { 
@@ -25,7 +25,7 @@ const PRODUCTS = [
     price: 650, 
     colors: ['#fff','#f5f5dc'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1606822472851-419b7d8d47b1?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://images.unsplash.com/photo-1588350164807-6b4d3f5728a4?auto=format&fit=crop&q=80&w=1200', 
     bg: '#f7f7f7', 
     descTC: '無染色有機棉，保留自然的純淨觸感。減壓束口設計，讓長時間穿著也毫無束縛感。',
     descJP: '無染色のオーガニックコットンを使用。肌への優しさを第一に考え、締め付けを抑えた設計に仕上げました。' 
@@ -54,7 +54,7 @@ const PRODUCTS = [
     price: 580, 
     colors: ['#fff','#2d2d2d'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1590736704728-f4730bb3c370?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://images.unsplash.com/photo-1540919137976-43b9e4a32777?auto=format&fit=crop&q=80&w=1200', 
     bg: '#f7f7f7', 
     descTC: '大網眼編織工法，極致透氣。即使在潮濕悶熱的夏季，足部依然能自由呼吸。',
     descJP: '通気性を極限まで高めたメッシュ編みを採用。蒸れにくく、夏場でもさらりと快適な足元を保ちます。' 
@@ -71,7 +71,7 @@ const PRODUCTS = [
     badge: 'new', 
     colors: ['#f0e8f0','#e0d0e8','#2d2d2d'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1555529733-0e670560f7e1?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://images.unsplash.com/photo-1590736704728-f4730bb3c370?auto=format&fit=crop&q=80&w=1200', 
     bg: '#fdfaf8', 
     descTC: '上質真絲與棉的完美比例。極致柔滑的觸感與天然的溫度調節功能，呵護您的每一寸肌膚。',
     descJP: '上質なシルクをブレンドした贅沢な一足。吸湿性と放湿性に優れ、季節を問わず滑らかな肌触りを楽しめます。' 
@@ -85,7 +85,7 @@ const PRODUCTS = [
     price: 950, 
     colors: ['#fff','#f8f8f8'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://images.unsplash.com/photo-1627255194483-33bc0f49c593?auto=format&fit=crop&q=80&w=1200', 
     bg: '#f7f7f7', 
     descTC: '如月光般的柔和光澤。適合在靜謐的夜晚，與一本書和一杯茶共度。',
     descJP: 'シルク特有の光沢が美しいルームソックス。静かな夜のリラックスタイムに、至福の柔らかさを。' 
@@ -99,7 +99,7 @@ const PRODUCTS = [
     price: 780, 
     colors: ['#fff','#f5f5dc'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1591530225114-177981f47f48?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://images.unsplash.com/photo-1591143825313-757876e27402?auto=format&fit=crop&q=80&w=1200', 
     bg: '#fdfaf8', 
     descTC: '高純度蠶絲材質，自動調節溫濕度。不僅是配件，更是對足部的深度保養。',
     descJP: '高純度シルクを使用したフットケアソックス。保湿性に優れ、乾燥から足元を優しく守ります。' 
@@ -130,7 +130,7 @@ const PRODUCTS = [
     badge: 'new', 
     colors: ['#f8f8f8','#e0d0e8','#c8dde8'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1502741282025-a9c68cc289ad?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://images.unsplash.com/photo-1560529870-1efc5a43990f?auto=format&fit=crop&q=80&w=1200', 
     bg: '#fdfaf8', 
     descTC: '輕盈如翼的透明網紗，折射出粼粼光影。讓腳步在都市穿梭中，依然優雅朦朧。',
     descJP: '光を透過する繊細なシアー素材。都会的なスタイリングに、透明感という新しい彩りを与えます。' 
@@ -144,7 +144,7 @@ const PRODUCTS = [
     price: 920, 
     colors: ['#2d2d2d','#fff'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1563823251941-b9989d1e8d97?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://images.unsplash.com/photo-1543039625-14bc3f87362b?auto=format&fit=crop&q=80&w=1200', 
     bg: '#f7f7f7', 
     descTC: '精緻的復古刺繡圖騰，點綴在透明感織物上。散發如藝術品般的收藏價值。',
     descJP: 'アンティークのような気品漂う刺繍シアーソックス。足元をエレガントに、芸術的に演出します。' 
@@ -172,7 +172,7 @@ const PRODUCTS = [
     price: 680, 
     colors: ['#fff','#999'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1584288015701-d7ec78996b7b?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://images.unsplash.com/photo-1516478177764-9fe5bd7e9717?auto=format&fit=crop&q=80&w=1200', 
     bg: '#f7f7f7', 
     descTC: '無邊界的極簡設計，與膚色完美融合。追求「若有似無」的終極質感體驗。',
     descJP: '境界線のない極限のミニマリズム。履いていることを忘れるような、究極の透明感。' 
@@ -207,12 +207,13 @@ function setLang(lang) {
   });
   
   // Content Refresher
-  if (typeof applyFilter === 'function') applyFilter(); 
-  else if (typeof renderProduct === 'function') renderProduct();
-  else if (document.getElementById('productGrid')) {
-    const grid = document.getElementById('productGrid');
-    grid.innerHTML = '';
-    PRODUCTS.forEach(p => grid.appendChild(createProductCard(p)));
+  const grid = document.getElementById('productGrid');
+  if (grid) {
+    if (typeof applyFilter === 'function') applyFilter(); 
+    else {
+      grid.innerHTML = '';
+      PRODUCTS.forEach(p => grid.appendChild(createProductCard(p)));
+    }
   }
   
   // Static Texts

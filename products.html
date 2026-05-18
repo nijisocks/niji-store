@@ -25,7 +25,7 @@
   <nav class="navbar-life">
     <a href="index.html" class="logo-life">niji-goods</a>
     <div class="nav-links-life">
-      <a href="socks.html" data-tc="SOCKS" data-jp="SOCKS">SOCKS</a>
+      <a href="products.html?div=socks" data-tc="SOCKS" data-jp="SOCKS">SOCKS</a>
       <a href="about.html">Concept</a>
       <div class="lang-switcher">
         <span onclick="setLang('tc')" class="lang-btn" data-lang="tc">TC</span> / <span onclick="setLang('jp')" class="lang-btn" data-lang="jp">JP</span>
@@ -35,13 +35,8 @@
 
   <section class="filter-bar">
     <div class="container">
-      <div class="filter-tags">
-        <div class="filter-tag active" data-filter="all" data-tc="全部商品" data-jp="すべて">すべて</div>
-        <div class="filter-tag" data-filter="cotton" data-tc="精梳棉" data-jp="コットン">コットン</div>
-        <div class="filter-tag" data-filter="silk" data-tc="蠶絲" data-jp="シルク">シルク</div>
-        <div class="filter-tag" data-filter="glass" data-tc="網紗" data-jp="シアー">シアー</div>
-        <div class="filter-tag" data-filter="linen" data-tc="亞麻" data-jp="リネン">リネン</div>
-        <div class="filter-tag" data-filter="modal" data-tc="莫代爾" data-jp="モダール">モダール</div>
+      <div class="filter-tags" id="filterTags">
+        <!-- Dynamic Tags -->
       </div>
     </div>
   </section>
@@ -70,6 +65,7 @@
     const itemsPerPage = 16;
 
     function applyFilter() {
+      renderTags();
       const grid = document.getElementById('productGrid');
       grid.innerHTML = '';
       
@@ -92,9 +88,32 @@
       });
 
       renderPagination(totalPages);
+    }
 
-      document.querySelectorAll('.filter-tag').forEach(tag => {
-        tag.classList.toggle('active', tag.getAttribute('data-filter') === activeFilter);
+    function renderTags() {
+      const tagContainer = document.getElementById('filterTags');
+      tagContainer.innerHTML = '';
+      
+      const tags = [
+        { id: 'all', tc: '全部商品', jp: 'すべて', divs: ['all', 'socks', 'bedding', 'inner'] },
+        { id: 'cotton', tc: '精梳棉', jp: 'コットン', divs: ['all', 'socks'] },
+        { id: 'silk', tc: '蠶絲', jp: 'シルク', divs: ['all', 'socks'] },
+        { id: 'glass', tc: '網紗', jp: 'シアー', divs: ['all', 'socks'] },
+        { id: 'linen', tc: '亞麻', jp: 'リネン', divs: ['all', 'bedding'] },
+        { id: 'modal', tc: '莫代爾', jp: 'モダール', divs: ['all', 'inner'] }
+      ];
+
+      tags.filter(t => t.divs.includes(activeDiv)).forEach(t => {
+        const div = document.createElement('div');
+        div.className = `filter-tag ${t.id === activeFilter ? 'active' : ''}`;
+        div.textContent = currentLang === 'tc' ? t.tc : t.jp;
+        div.onclick = () => {
+          activeFilter = t.id;
+          currentPage = 1;
+          history.pushState(null, '', `?cat=${activeFilter}${activeDiv !== 'all' ? '&div='+activeDiv : ''}`);
+          applyFilter();
+        };
+        tagContainer.appendChild(div);
       });
     }
 
@@ -116,14 +135,7 @@
       }
     }
 
-    document.querySelectorAll('.filter-tag').forEach(tag => {
-      tag.addEventListener('click', () => {
-        activeFilter = tag.getAttribute('data-filter');
-        currentPage = 1;
-        history.pushState(null, '', `?cat=${activeFilter}${activeDiv !== 'all' ? '&div='+activeDiv : ''}`);
-        applyFilter();
-      });
-    });
+
 
     document.addEventListener('DOMContentLoaded', () => {
       setLang(currentLang);

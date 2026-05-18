@@ -31,7 +31,7 @@
   <nav class="navbar-life">
     <a href="index.html" class="logo-life">niji-goods</a>
     <div class="nav-links-life">
-      <a href="socks.html">Socks</a>
+      <a href="products.html?div=socks">Socks</a>
       <a href="about.html">Concept</a>
       <div class="lang-switcher">
         <span onclick="setLang('tc')" class="lang-btn" data-lang="tc">TC</span> / <span onclick="setLang('jp')" class="lang-btn" data-lang="jp">JP</span>
@@ -85,6 +85,13 @@
       const colorDots = p.colors.map(c => `<div class="color-dot ${c === selectedColor ? 'active' : ''}" style="background:${c};" onclick="selectedColor='${c}';renderProduct()"></div>`).join('');
       const sizeBtns = p.sizes.map(s => `<button class="size-btn ${s === selectedSize ? 'active' : ''}" onclick="selectedSize='${s}';renderProduct()">${s}</button>`).join('');
 
+      const attrHtml = p.attribute ? `
+        <div class="option-group" style="margin-top:20px;">
+          <span class="option-label">${p.attribute.label}</span>
+          <div style="font-size:14px; color:var(--dark);">${p.attribute.value}</div>
+        </div>
+      ` : '';
+
       document.getElementById('productDetail').innerHTML = `
         <div class="product-gallery">
           <img src="${p.img}" alt="${name}" id="mainImg">
@@ -104,6 +111,8 @@
             <div class="size-btns">${sizeBtns}</div>
           </div>
 
+          ${attrHtml}
+
           <button class="add-btn" onclick="Cart.add(${p.id}, '${selectedSize}')">${addBtnText}</button>
           
           <div class="prod-desc">
@@ -113,10 +122,10 @@
         </div>
       `;
 
-      // Related
+      // Related (Division Aware)
       const relGrid = document.getElementById('relatedGrid');
       relGrid.innerHTML = '';
-      PRODUCTS.filter(x => x.id !== p.id).slice(0, 4).forEach(x => relGrid.appendChild(createProductCard(x)));
+      PRODUCTS.filter(x => x.id !== p.id && x.division === p.division).slice(0, 4).forEach(x => relGrid.appendChild(createProductCard(x)));
     }
   </script>
 </body>

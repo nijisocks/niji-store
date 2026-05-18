@@ -11,7 +11,7 @@ const PRODUCTS = [
     badge: 'new', 
     colors: ['#F7F7F7','#2D2D2D','#E5D3C5'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1582966298636-a1d08b302e0c?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://s.alicdn.com/@sc04/kf/H15ee497ac86f4c6892f0a3130bbfa668b.jpg', 
     bg: '#fdfaf8', 
     descTC: '嚴選100%精梳棉製作，羅紋編織工法提供極致彈性與透氣感。足踝處的彩虹邊線，為日常穿搭增添一抹精緻的生命力。',
     descJP: '厳選されたプレミアムコットンを使用したリブソックス。柔らかい肌触りと優れた伸縮性が、日常に小さな彩りを添えます。' 
@@ -25,7 +25,7 @@ const PRODUCTS = [
     price: 650, 
     colors: ['#fff','#f5f5dc'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1588350164807-6b4d3f5728a4?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://sc02.alicdn.com/kf/A42cd397769654255ae4245338a8da1278.png', 
     bg: '#f7f7f7', 
     descTC: '無染色有機棉，保留自然的純淨觸感。減壓束口設計，讓長時間穿著也毫無束縛感。',
     descJP: '無染色のオーガニックコットンを使用。肌への優しさを第一に考え、締め付けを抑えた設計に仕上げました。' 
@@ -40,7 +40,7 @@ const PRODUCTS = [
     badge: 'popular', 
     colors: ['#f87171','#60a5fa','#4ade80','#fbbf24','#1a1a1a'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1562183241-b937e95585b6?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://s.alicdn.com/@sc04/kf/H64c1ecfcd07a42e1b224d9d580c825c2M.png', 
     bg: '#fdfaf8', 
     descTC: '五種大地色系，應對一週的優雅。舒適耐穿，是回購率最高的基本款。',
     descJP: '毎日のコーディネートに寄り添う5色セット。耐久性と履き心地の良さを両立した定番アイテムです。' 
@@ -54,7 +54,7 @@ const PRODUCTS = [
     price: 580, 
     colors: ['#fff','#2d2d2d'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1540919137976-43b9e4a32777?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://s.alicdn.com/@sc04/kf/H5de58758c0a14f059f9e97d78e814f97b.jpg', 
     bg: '#f7f7f7', 
     descTC: '大網眼編織工法，極致透氣。即使在潮濕悶熱的夏季，足部依然能自由呼吸。',
     descJP: '通気性を極限まで高めたメッシュ編みを採用。蒸れにくく、夏場でもさらりと快適な足元を保ちます。' 
@@ -71,7 +71,7 @@ const PRODUCTS = [
     badge: 'new', 
     colors: ['#f0e8f0','#e0d0e8','#2d2d2d'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1590736704728-f4730bb3c370?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://sc02.alicdn.com/kf/Adad70828e2e04eafb25e46c8ef5944ecX.png', 
     bg: '#fdfaf8', 
     descTC: '上質真絲與棉的完美比例。極致柔滑的觸感與天然的溫度調節功能，呵護您的每一寸肌膚。',
     descJP: '上質なシルクをブレンドした贅沢な一足。吸湿性と放湿性に優れ、季節を問わず滑らかな肌触りを楽しめます。' 
@@ -85,7 +85,7 @@ const PRODUCTS = [
     price: 950, 
     colors: ['#fff','#f8f8f8'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1627255194483-33bc0f49c593?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://s.alicdn.com/@sc04/kf/Hbf0a49ffa012493798ef92a14bd5afecm.jpg', 
     bg: '#f7f7f7', 
     descTC: '如月光般的柔和光澤。適合在靜謐的夜晚，與一本書和一杯茶共度。',
     descJP: 'シルク特有の光沢が美しいルームソックス。静かな夜のリラックスタイムに、至福の柔らかさを。' 
@@ -99,7 +99,7 @@ const PRODUCTS = [
     price: 780, 
     colors: ['#fff','#f5f5dc'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1591143825313-757876e27402?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://s.alicdn.com/@sc04/kf/Hc08c0dfd123c4349bf2d72a8521d7b9dZ.png', 
     bg: '#fdfaf8', 
     descTC: '高純度蠶絲材質，自動調節溫濕度。不僅是配件，更是對足部的深度保養。',
     descJP: '高純度シルクを使用したフットケアソックス。保湿性に優れ、乾燥から足元を優しく守ります。' 
@@ -113,7 +113,7 @@ const PRODUCTS = [
     price: 520, 
     colors: ['#fff','#2d2d2d'], 
     sizes: ['free'], 
-    img: 'https://images.unsplash.com/photo-1589133465492-49f96b27e8a9?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://s.alicdn.com/@sc04/kf/Ha78f4a0dd159438593060ca05404f6c3L.jpg', 
     bg: '#f7f7f7', 
     descTC: '針對指縫與足尖的精緻呵護。透氣真絲材質，完美隱藏於各種鞋型之中。',
     descJP: 'デリケートな指先の蒸れを防ぐシルクハーフソックス。重ね履きのインナーとしても最適です。' 
@@ -130,7 +130,7 @@ const PRODUCTS = [
     badge: 'new', 
     colors: ['#f8f8f8','#e0d0e8','#c8dde8'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1560529870-1efc5a43990f?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://sc02.alicdn.com/kf/A813009429bf946b3afb57d4884bdf5c3x.png', 
     bg: '#fdfaf8', 
     descTC: '輕盈如翼的透明網紗，折射出粼粼光影。讓腳步在都市穿梭中，依然優雅朦朧。',
     descJP: '光を透過する繊細なシアー素材。都会的なスタイリングに、透明感という新しい彩りを与えます。' 
@@ -144,7 +144,7 @@ const PRODUCTS = [
     price: 920, 
     colors: ['#2d2d2d','#fff'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1543039625-14bc3f87362b?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://s.alicdn.com/@sc04/kf/Hf15cb0e1adb84b12830ffdf208fce446c.jpg', 
     bg: '#f7f7f7', 
     descTC: '精緻的復古刺繡圖騰，點綴在透明感織物上。散發如藝術品般的收藏價值。',
     descJP: 'アンティークのような気品漂う刺繍シアーソックス。足元をエレガントに、芸術的に演出します。' 
@@ -158,7 +158,7 @@ const PRODUCTS = [
     price: 720, 
     colors: ['#2d2d2d','#f87171'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1521404063623-6363c3290633?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://s.alicdn.com/@sc04/kf/H36a4afbe69e54a6f981e641707f4a8896.png', 
     bg: '#fdfaf8', 
     descTC: '靈動的波點設計，與透明底色形成俏皮對比。為優雅的裙裝增添一份靈動感。',
     descJP: '遊び心あふれるドット柄のシアーソックス。軽快な足取りを演出し、コーディネートのアクセントに。' 
@@ -172,7 +172,7 @@ const PRODUCTS = [
     price: 680, 
     colors: ['#fff','#999'], 
     sizes: ['23-25cm'], 
-    img: 'https://images.unsplash.com/photo-1516478177764-9fe5bd7e9717?auto=format&fit=crop&q=80&w=1200', 
+    img: 'https://s.alicdn.com/@sc04/kf/Hf15cb0e1adb84b12830ffdf208fce446c.jpg', 
     bg: '#f7f7f7', 
     descTC: '無邊界的極簡設計，與膚色完美融合。追求「若有似無」的終極質感體驗。',
     descJP: '境界線のない極限のミニマリズム。履いていることを忘れるような、究極の透明感。' 
@@ -252,7 +252,7 @@ function createProductCard(product) {
 
   card.innerHTML = `
     <div class="div-img-wrap" style="background:${product.bg}">
-      <img src="${product.img}" alt="${name}" loading="lazy">
+      <img src="${product.img}" alt="${name}" loading="lazy" onerror="this.src='https://sc02.alicdn.com/kf/A42cd397769654255ae4245338a8da1278.png'; this.className='img-error';">
       ${badge}
     </div>
     <div class="prod-info" style="text-align:left; padding:15px 5px;">

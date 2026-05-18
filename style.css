@@ -183,7 +183,8 @@ a { color: inherit; text-decoration: none; transition: 0.3s; }
 }
 .div-card { transition: transform 0.5s ease; cursor: pointer; }
 .div-img-wrap { aspect-ratio: 3/4; overflow: hidden; margin-bottom: 30px; background-color: var(--off-white); position: relative; }
-.div-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s cubic-bezier(0.165, 0.84, 0.44, 1); }
+.div-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s cubic-bezier(0.165, 0.84, 0.44, 1); background: var(--off-white); }
+.div-img-wrap img.img-error { object-fit: contain; padding: 20%; opacity: 0.5; }
 .div-card:hover img { transform: scale(1.08); }
 
 .div-label { font-size: 10px; letter-spacing: 0.2em; color: #999; margin-bottom: 12px; text-transform: uppercase; }

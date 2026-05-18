@@ -10,10 +10,14 @@
   <link rel="stylesheet" href="style.css">
   <style>
     .filter-bar { margin-top: 100px; padding: 40px 0; border-bottom: 1px solid #f0f0f0; }
-    .filter-tags { display: flex; gap: 30px; justify-content: center; }
+    .filter-tags { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
     .filter-tag { font-size: 13px; color: #999; cursor: pointer; transition: color 0.3s; position: relative; }
     .filter-tag:hover, .filter-tag.active { color: #1a1a1a; }
     .filter-tag.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 1px; background: #1a1a1a; }
+    
+    .pagination { margin: 60px 0; display: flex; justify-content: center; gap: 20px; }
+    .page-btn { padding: 8px 16px; border: 1px solid #eee; background: #fff; cursor: pointer; font-size: 13px; }
+    .page-btn.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
   </style>
 </head>
 <body>
@@ -21,7 +25,7 @@
   <nav class="navbar-life">
     <a href="index.html" class="logo-life">niji-goods</a>
     <div class="nav-links-life">
-      <a href="socks.html" class="active">Socks</a>
+      <a href="socks.html" data-tc="SOCKS" data-jp="SOCKS">SOCKS</a>
       <a href="about.html">Concept</a>
       <div class="lang-switcher">
         <span onclick="setLang('tc')" class="lang-btn" data-lang="tc">TC</span> / <span onclick="setLang('jp')" class="lang-btn" data-lang="jp">JP</span>
@@ -36,15 +40,19 @@
         <div class="filter-tag" data-filter="cotton" data-tc="精梳棉" data-jp="コットン">コットン</div>
         <div class="filter-tag" data-filter="silk" data-tc="蠶絲" data-jp="シルク">シルク</div>
         <div class="filter-tag" data-filter="glass" data-tc="網紗" data-jp="シアー">シアー</div>
+        <div class="filter-tag" data-filter="linen" data-tc="亞麻" data-jp="リネン">リネン</div>
+        <div class="filter-tag" data-filter="modal" data-tc="莫代爾" data-jp="モダール">モダール</div>
       </div>
     </div>
   </section>
 
-  <section class="portal-section" style="background:#fff;">
+  <section class="portal-section" style="background:#fff; min-height: 80vh;">
     <div class="container">
       <div id="productGrid" class="division-grid" style="grid-template-columns: repeat(4, 1fr); gap: 40px 20px;">
         <!-- Filled by JS -->
       </div>
+      
+      <div id="pagination" class="pagination"></div>
     </div>
   </section>
 
@@ -57,28 +65,62 @@
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     let activeFilter = urlParams.get('cat') || 'all';
+    let activeDiv = urlParams.get('div') || 'all';
+    let currentPage = 1;
+    const itemsPerPage = 16;
 
     function applyFilter() {
       const grid = document.getElementById('productGrid');
       grid.innerHTML = '';
       
-      const filtered = activeFilter === 'all' 
-        ? PRODUCTS 
-        : PRODUCTS.filter(p => p.material === activeFilter);
+      let filtered = PRODUCTS;
       
-      filtered.forEach(p => {
+      if (activeDiv !== 'all') {
+        filtered = filtered.filter(p => p.division === activeDiv);
+      }
+      
+      if (activeFilter !== 'all') {
+        filtered = filtered.filter(p => p.material === activeFilter);
+      }
+      
+      const totalPages = Math.ceil(filtered.length / itemsPerPage);
+      const start = (currentPage - 1) * itemsPerPage;
+      const paginated = filtered.slice(start, start + itemsPerPage);
+      
+      paginated.forEach(p => {
         grid.appendChild(createProductCard(p));
       });
+
+      renderPagination(totalPages);
 
       document.querySelectorAll('.filter-tag').forEach(tag => {
         tag.classList.toggle('active', tag.getAttribute('data-filter') === activeFilter);
       });
     }
 
+    function renderPagination(total) {
+      const container = document.getElementById('pagination');
+      container.innerHTML = '';
+      if (total <= 1) return;
+
+      for (let i = 1; i <= total; i++) {
+        const btn = document.createElement('button');
+        btn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+        btn.textContent = i;
+        btn.onclick = () => {
+          currentPage = i;
+          window.scrollTo({ top: 300, behavior: 'smooth' });
+          applyFilter();
+        };
+        container.appendChild(btn);
+      }
+    }
+
     document.querySelectorAll('.filter-tag').forEach(tag => {
       tag.addEventListener('click', () => {
         activeFilter = tag.getAttribute('data-filter');
-        history.pushState(null, '', `?cat=${activeFilter}`);
+        currentPage = 1;
+        history.pushState(null, '', `?cat=${activeFilter}${activeDiv !== 'all' ? '&div='+activeDiv : ''}`);
         applyFilter();
       });
     });

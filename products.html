@@ -63,7 +63,7 @@
     const urlParams = new URLSearchParams(window.location.search);
     let activeFilter = urlParams.get('cat') || 'all';
     let activeDiv = urlParams.get('div') || 'all';
-    let currentPage = 1;
+    let currentPage = parseInt(urlParams.get('page')) || 1;
     const itemsPerPage = 16;
 
     function applyFilter() {
@@ -82,6 +82,8 @@
       }
       
       const totalPages = Math.ceil(filtered.length / itemsPerPage);
+      if (currentPage > totalPages && totalPages > 0) currentPage = totalPages;
+      
       const start = (currentPage - 1) * itemsPerPage;
       const paginated = filtered.slice(start, start + itemsPerPage);
       
@@ -112,7 +114,7 @@
         div.onclick = () => {
           activeFilter = t.id;
           currentPage = 1;
-          history.pushState(null, '', `?cat=${activeFilter}${activeDiv !== 'all' ? '&div='+activeDiv : ''}`);
+          updateURL();
           applyFilter();
         };
         tagContainer.appendChild(div);
@@ -131,10 +133,19 @@
         btn.onclick = () => {
           currentPage = i;
           window.scrollTo({ top: 300, behavior: 'smooth' });
+          updateURL();
           applyFilter();
         };
         container.appendChild(btn);
       }
+    }
+
+    function updateURL() {
+      const params = new URLSearchParams();
+      if (activeDiv !== 'all') params.set('div', activeDiv);
+      if (activeFilter !== 'all') params.set('cat', activeFilter);
+      if (currentPage > 1) params.set('page', currentPage);
+      history.pushState(null, '', '?' + params.toString());
     }
 
 

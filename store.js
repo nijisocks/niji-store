@@ -2964,7 +2964,7 @@ const PRODUCTS = [
     "sizes": [
       "23-25cm"
     ],
-    "img": "https://i.pinimg.com/736x/00/85/7f/00857f70830bd1c45bfcf44c17a30749.jpg",
+    "img": "https://sc02.alicdn.com/kf/A0c148cf5572c4cb0aa01af66400ef1a69.png",
     "bg": "#f7f7f7",
     "descTC": "嚴選高級天然纖維，結合精湛織法，為雙足提供如第二層肌膚般的細膩呵護。在每一步行走間，感受材質的溫度與靈魂。",
     "descJP": "厳選された高級天然繊維と優れた織り技術が、足元に第二の肌のような繊細なケアを提供します。一歩ごとに、素材の温もりと魂を感じてください。",
@@ -2990,7 +2990,7 @@ const PRODUCTS = [
     "sizes": [
       "23-25cm"
     ],
-    "img": "https://i.pinimg.com/736x/96/50/bb/9650bb6954cde0f73bb0123f2fd6e7e5.jpg",
+    "img": "https://sc02.alicdn.com/kf/Ae8bfed27ef4b451c910627f9c010e64d1.png",
     "bg": "#fdfaf8",
     "descTC": "嚴選高級天然纖維，結合精湛織法，為雙足提供如第二層肌膚般的細膩呵護。在每一步行走間，感受材質的溫度與靈魂。",
     "descJP": "厳選された高級天然繊維と優れた織り技術が、足元に第二の肌のような繊細なケアを提供します。一歩ごとに、素材の温もりと魂を感じてください。",
@@ -3016,7 +3016,7 @@ const PRODUCTS = [
     "sizes": [
       "23-25cm"
     ],
-    "img": "https://i.pinimg.com/736x/f8/c2/9d/f8c29d1745197a9718fc53c72092e8d9.jpg",
+    "img": "https://sc02.alicdn.com/kf/A10d3e0c3638f435c821265b9705527718.png",
     "bg": "#f7f7f7",
     "descTC": "嚴選高級天然纖維，結合精湛織法，為雙足提供如第二層肌膚般的細膩呵護。在每一步行走間，感受材質的溫度與靈魂。",
     "descJP": "厳選された高級天然繊維と優れた織り技術が、足元に第二の肌のような繊細なケアを提供します。一歩ごとに、素材の温もりと魂を感じてください。",
@@ -3042,7 +3042,7 @@ const PRODUCTS = [
     "sizes": [
       "23-25cm"
     ],
-    "img": "https://i.pinimg.com/736x/b5/51/98/b55198396bf72844ceaee40e7071aa09.jpg",
+    "img": "https://sc02.alicdn.com/kf/Ad22d8f53b9a94d2e8f960675d7a58a97M.png",
     "bg": "#fdfaf8",
     "descTC": "嚴選高級天然纖維，結合精湛織法，為雙足提供如第二層肌膚般的細膩呵護。在每一步行走間，感受材質的溫度與靈魂。",
     "descJP": "厳選された高級天然繊維と優れた織り技術が、足元に第二の肌のような繊細なケアを提供します。一歩ごとに、素材の温もりと魂を感じてください。",
@@ -3068,7 +3068,7 @@ const PRODUCTS = [
     "sizes": [
       "23-25cm"
     ],
-    "img": "https://i.pinimg.com/736x/00/b8/c1/00b8c145bd9c114d12930953841a387c.jpg",
+    "img": "https://sc02.alicdn.com/kf/A620b9dfed1df4335b25f01bc7cac309fh.png",
     "bg": "#f7f7f7",
     "descTC": "嚴選高級天然纖維，結合精湛織法，為雙足提供如第二層肌膚般的細膩呵護。在每一步行走間，感受材質的溫度與靈魂。",
     "descJP": "厳選された高級天然繊維と優れた織り技術が、足元に第二の肌のような繊細なケアを提供します。一歩ごとに、素材の温もりと魂を感じてください。",
@@ -4297,7 +4297,7 @@ function setLang(lang) {
   
   // Static Texts
   document.querySelectorAll('[data-tc]').forEach(el => {
-    el.textContent = lang === 'tc' ? el.getAttribute('data-tc') : el.getAttribute('data-jp');
+    el.innerHTML = lang === 'tc' ? el.getAttribute('data-tc') : el.getAttribute('data-jp');
   });
 }
 

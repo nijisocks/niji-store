@@ -45,7 +45,7 @@
 
   <section class="portal-section" style="background:#fff; min-height: 80vh;">
     <div class="container">
-      <div id="productGrid" class="division-grid" style="grid-template-columns: repeat(4, 1fr); gap: 40px 20px;">
+      <div id="productGrid" class="division-grid">
         <!-- Filled by JS -->
       </div>
       
@@ -67,6 +67,18 @@
     const itemsPerPage = 16;
 
     function applyFilter() {
+      const tags = [
+        { id: 'all', divs: ['all', 'socks', 'bedding', 'inner'] },
+        { id: 'cotton', divs: ['all', 'socks'] },
+        { id: 'silk', divs: ['all', 'socks'] },
+        { id: 'glass', divs: ['all', 'socks'] },
+        { id: 'linen', divs: ['all', 'bedding'] },
+        { id: 'modal', divs: ['all', 'inner'] }
+      ];
+      if (!tags.find(t => t.id === activeFilter && t.divs.includes(activeDiv))) {
+        activeFilter = 'all';
+      }
+
       renderTags();
       const grid = document.getElementById('productGrid');
       grid.innerHTML = '';
